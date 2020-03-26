@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QtBluetooth>
 
-
+//hi
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
