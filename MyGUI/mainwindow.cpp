@@ -1,31 +1,71 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QMessageBox>
-#include <QDebug>
+#include <QtBluetooth>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
 {
-    hzVal = 1;
     ui->setupUi(this);
-    ui->label_2->setText(QString::number(hzVal));
-    //connect(ui->horizontalSlider, SIGNAL(valueChanged(int)), ui->progressBar, SLOT(setValue(int)));
-}
+    //parent->setStyleSheet("background-color:white");
+    ui->listWidget->hide();
+    connect(disc, SIGNAL(deviceDiscovered(QBluetoothDeviceInfo)), this, SLOT(deviceDiscovered(QBluetoothDeviceInfo)));
+    disc->start();
+
+
+    QGraphicsScene scene;
+        QPixmap pixmap("/Users/omarsyed/MCT-Device-Interface/MyGui/temp.jpg");
+        scene.addPixmap(pixmap);
+        //ui->viewer->setScene(&scene);
+
+        // add here
+        ui->graphicsView->setScene(&scene);
+        ui->graphicsView->show();
+
+
+    socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
+  }
+
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
 }
 
-void MainWindow::on_pushButton_clicked()
+
+void MainWindow::on_Find_Device_clicked()
 {
-    //QString hzVal = QString::number(ui->horizontalSlider->value());
-    ui->label->setText("Sending " + QString::number(hzVal) + " pulses");
+    ui->listWidget->show();
+    ui->listWidget->clear();
+    disc->stop();
+    disc->start();
+
 }
 
-void MainWindow::on_horizontalSlider_valueChanged(int value)
+void MainWindow::on_Bluetooth_On_clicked()
 {
-    hzVal = value * 1000 + 200;
-    ui->label_2->setText(QString::number(hzVal));
+    socket->write("ON");
+
+}
+
+void MainWindow::on_Bluetoot_Off_clicked()
+{
+    socket->write("OFF");
+
+}
+
+void MainWindow::deviceDiscovered(const QBluetoothDeviceInfo &device)
+{
+    ui->listWidget->addItem(device.address().toString());
+
+}
+
+void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    string = item->text();
+    ui->listWidget->addItem(string);
+    static const QString serviceUuid(QStringLiteral("00001101-0000-1000-8000-00805F9B34FB"));
+    socket->connectToService(QBluetoothAddress(string), QBluetoothUuid(serviceUuid), QIODevice::ReadWrite);
 }
