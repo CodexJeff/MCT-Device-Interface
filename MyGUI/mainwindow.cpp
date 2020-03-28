@@ -81,5 +81,10 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 
 void MainWindow::on_pushButton_clicked()
 {
-    ui->label->setText("Status: ON");
+
+    if (ui->label->text() == "Status: ON"){
+        ui->label->setText("Status: OFF");
+    }else {
+       ui->label->setText("Status: ON");
+    }
 }
