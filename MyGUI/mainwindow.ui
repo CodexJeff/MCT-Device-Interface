@@ -291,6 +291,30 @@ color: white;
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>30</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: BLACK;</string>
+    </property>
+    <property name="text">
+     <string>Status: OFF</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
       <x>120</x>
       <y>50</y>
       <width>111</width>
@@ -326,6 +350,7 @@ color: white;
    <zorder>Find_Device</zorder>
    <zorder>graphicsView</zorder>
    <zorder>label</zorder>
+   <zorder>label_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
