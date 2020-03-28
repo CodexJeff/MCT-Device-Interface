@@ -317,7 +317,7 @@ min-height:50px;</string>
      <rect>
       <x>120</x>
       <y>50</y>
-      <width>111</width>
+      <width>161</width>
       <height>41</height>
      </rect>
     </property>
@@ -358,7 +358,7 @@ min-height:50px;</string>
      <x>0</x>
      <y>0</y>
      <width>349</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
