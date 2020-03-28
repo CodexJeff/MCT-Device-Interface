@@ -3,6 +3,7 @@
 #include <QtBluetooth>
 
 //hi
+//hi test
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
