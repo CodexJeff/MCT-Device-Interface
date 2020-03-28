@@ -9,6 +9,7 @@
 //Imagine GIT still being ass in 2020
 //イタチ大好き
 //One last time
+// some body once told me the world....
 
 
 MainWindow::MainWindow(QWidget *parent)
