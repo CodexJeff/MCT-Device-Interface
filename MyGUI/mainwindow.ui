@@ -365,117 +365,12 @@ min-height:50px;</string>
     <property name="title">
      <string>MenuBar</string>
     </property>
-    <widget class="QMenu" name="menuPrograms">
-     <property name="title">
-      <string>Programs</string>
-     </property>
-     <addaction name="actionAllergy"/>
-     <addaction name="actionPain"/>
-     <addaction name="actionDystonia"/>
-     <addaction name="actionGyn_Pain"/>
-     <addaction name="actionHypotonia"/>
-     <addaction name="actionHead"/>
-     <addaction name="actionAbd_Pain"/>
-     <addaction name="actionCold"/>
-     <addaction name="actionPotency"/>
-     <addaction name="actionJoints"/>
-     <addaction name="actionNausea"/>
-     <addaction name="actionConstipation"/>
-     <addaction name="actionInt_Pain"/>
-     <addaction name="actionBloating"/>
-     <addaction name="actionGynecology"/>
-     <addaction name="actionHypertension"/>
-     <addaction name="actionThroat"/>
-     <addaction name="actionDiarrhea"/>
-     <addaction name="actionMuscles"/>
-     <addaction name="actionCough"/>
-     <addaction name="actionKidneys"/>
-     <addaction name="actionBack"/>
-     <addaction name="actionTrauma"/>
-     <addaction name="actionAsphyxia"/>
-    </widget>
-    <widget class="QMenu" name="menuFrequency">
-     <property name="title">
-      <string>Frequency</string>
-     </property>
-     <addaction name="action1_0_9_9HZ"/>
-     <addaction name="action10_Hz"/>
-     <addaction name="action20_HZ"/>
-     <addaction name="action60_Hz"/>
-     <addaction name="action77_Hz"/>
-     <addaction name="action125_Hz"/>
-     <addaction name="action140_Hz"/>
-     <addaction name="action200_Hz"/>
-     <addaction name="action7710"/>
-     <addaction name="action7720"/>
-     <addaction name="action77AM"/>
-    </widget>
-    <widget class="QMenu" name="menuChildren">
-     <property name="title">
-      <string>Children </string>
-     </property>
-     <addaction name="separator"/>
-     <addaction name="actionDisable"/>
-     <addaction name="actionUp_to_year_1_year"/>
-     <addaction name="action1_3_Years"/>
-     <addaction name="action4_7_Years"/>
-     <addaction name="action7_12_Years"/>
-    </widget>
-    <widget class="QMenu" name="menuSettings">
-     <property name="title">
-      <string>Settings</string>
-     </property>
-     <widget class="QMenu" name="menuSound">
-      <property name="title">
-       <string>Sound</string>
-      </property>
-      <addaction name="actionGeneral"/>
-      <addaction name="actionSound_cont"/>
-      <addaction name="actionSOund_But"/>
-     </widget>
-     <widget class="QMenu" name="menuColor">
-      <property name="title">
-       <string>Color</string>
-      </property>
-      <addaction name="actionTurquoise"/>
-      <addaction name="actionWinter"/>
-      <addaction name="actionBrozne"/>
-      <addaction name="actionNight"/>
-     </widget>
-     <widget class="QMenu" name="menuAlarm_Clock">
-      <property name="title">
-       <string>Alarm Clock</string>
-      </property>
-      <addaction name="actionOff"/>
-      <addaction name="actionSingly"/>
-      <addaction name="actionDaily"/>
-     </widget>
-     <widget class="QMenu" name="menuLanguage">
-      <property name="title">
-       <string>Language</string>
-      </property>
-      <addaction name="actionEnglish"/>
-      <addaction name="actionFrench"/>
-      <addaction name="actionRussian"/>
-      <addaction name="actionItalian"/>
-      <addaction name="actionSpanish"/>
-      <addaction name="actionDeutsch"/>
-     </widget>
-     <addaction name="menuSound"/>
-     <addaction name="actionBrightness"/>
-     <addaction name="actionEconomy"/>
-     <addaction name="actionRecording"/>
-     <addaction name="actionClock"/>
-     <addaction name="menuAlarm_Clock"/>
-     <addaction name="menuLanguage"/>
-     <addaction name="menuColor"/>
-    </widget>
-    <addaction name="menuPrograms"/>
-    <addaction name="menuFrequency"/>
     <addaction name="actionMED"/>
     <addaction name="actionScreenings"/>
-    <addaction name="menuChildren"/>
-    <addaction name="menuSettings"/>
+    <addaction name="actionPrograms_2"/>
+    <addaction name="actionFrequency_2"/>
+    <addaction name="actionSettings_2"/>
+    <addaction name="actionChildren_2"/>
    </widget>
    <addaction name="menuMenuBar"/>
   </widget>
@@ -798,8 +693,46 @@ min-height:50px;</string>
     <string>Deutsch</string>
    </property>
   </action>
+  <action name="actionPrograms_2">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/rec/icons/syringe.jpg</normaloff>:/rec/icons/syringe.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>Programs</string>
+   </property>
+  </action>
+  <action name="actionFrequency_2">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/rec/icons/frequency.png</normaloff>:/rec/icons/frequency.png</iconset>
+   </property>
+   <property name="text">
+    <string>Frequency</string>
+   </property>
+  </action>
+  <action name="actionSettings_2">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/rec/icons/settings.png</normaloff>:/rec/icons/settings.png</iconset>
+   </property>
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionChildren_2">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/rec/icons/Children.png</normaloff>:/rec/icons/Children.png</iconset>
+   </property>
+   <property name="text">
+    <string>Children</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resource.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButton_6</sender>
