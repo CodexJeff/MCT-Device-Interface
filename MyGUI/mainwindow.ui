@@ -361,8 +361,435 @@ min-height:50px;</string>
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMenuBar">
+    <property name="title">
+     <string>MenuBar</string>
+    </property>
+    <widget class="QMenu" name="menuPrograms">
+     <property name="title">
+      <string>Programs</string>
+     </property>
+     <addaction name="actionAllergy"/>
+     <addaction name="actionPain"/>
+     <addaction name="actionDystonia"/>
+     <addaction name="actionGyn_Pain"/>
+     <addaction name="actionHypotonia"/>
+     <addaction name="actionHead"/>
+     <addaction name="actionAbd_Pain"/>
+     <addaction name="actionCold"/>
+     <addaction name="actionPotency"/>
+     <addaction name="actionJoints"/>
+     <addaction name="actionNausea"/>
+     <addaction name="actionConstipation"/>
+     <addaction name="actionInt_Pain"/>
+     <addaction name="actionBloating"/>
+     <addaction name="actionGynecology"/>
+     <addaction name="actionHypertension"/>
+     <addaction name="actionThroat"/>
+     <addaction name="actionDiarrhea"/>
+     <addaction name="actionMuscles"/>
+     <addaction name="actionCough"/>
+     <addaction name="actionKidneys"/>
+     <addaction name="actionBack"/>
+     <addaction name="actionTrauma"/>
+     <addaction name="actionAsphyxia"/>
+    </widget>
+    <widget class="QMenu" name="menuFrequency">
+     <property name="title">
+      <string>Frequency</string>
+     </property>
+     <addaction name="action1_0_9_9HZ"/>
+     <addaction name="action10_Hz"/>
+     <addaction name="action20_HZ"/>
+     <addaction name="action60_Hz"/>
+     <addaction name="action77_Hz"/>
+     <addaction name="action125_Hz"/>
+     <addaction name="action140_Hz"/>
+     <addaction name="action200_Hz"/>
+     <addaction name="action7710"/>
+     <addaction name="action7720"/>
+     <addaction name="action77AM"/>
+    </widget>
+    <widget class="QMenu" name="menuChildren">
+     <property name="title">
+      <string>Children </string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="actionDisable"/>
+     <addaction name="actionUp_to_year_1_year"/>
+     <addaction name="action1_3_Years"/>
+     <addaction name="action4_7_Years"/>
+     <addaction name="action7_12_Years"/>
+    </widget>
+    <widget class="QMenu" name="menuSettings">
+     <property name="title">
+      <string>Settings</string>
+     </property>
+     <widget class="QMenu" name="menuSound">
+      <property name="title">
+       <string>Sound</string>
+      </property>
+      <addaction name="actionGeneral"/>
+      <addaction name="actionSound_cont"/>
+      <addaction name="actionSOund_But"/>
+     </widget>
+     <widget class="QMenu" name="menuColor">
+      <property name="title">
+       <string>Color</string>
+      </property>
+      <addaction name="actionTurquoise"/>
+      <addaction name="actionWinter"/>
+      <addaction name="actionBrozne"/>
+      <addaction name="actionNight"/>
+     </widget>
+     <widget class="QMenu" name="menuAlarm_Clock">
+      <property name="title">
+       <string>Alarm Clock</string>
+      </property>
+      <addaction name="actionOff"/>
+      <addaction name="actionSingly"/>
+      <addaction name="actionDaily"/>
+     </widget>
+     <widget class="QMenu" name="menuLanguage">
+      <property name="title">
+       <string>Language</string>
+      </property>
+      <addaction name="actionEnglish"/>
+      <addaction name="actionFrench"/>
+      <addaction name="actionRussian"/>
+      <addaction name="actionItalian"/>
+      <addaction name="actionSpanish"/>
+      <addaction name="actionDeutsch"/>
+     </widget>
+     <addaction name="menuSound"/>
+     <addaction name="actionBrightness"/>
+     <addaction name="actionEconomy"/>
+     <addaction name="actionRecording"/>
+     <addaction name="actionClock"/>
+     <addaction name="menuAlarm_Clock"/>
+     <addaction name="menuLanguage"/>
+     <addaction name="menuColor"/>
+    </widget>
+    <addaction name="menuPrograms"/>
+    <addaction name="menuFrequency"/>
+    <addaction name="actionMED"/>
+    <addaction name="actionScreenings"/>
+    <addaction name="menuChildren"/>
+    <addaction name="menuSettings"/>
+   </widget>
+   <addaction name="menuMenuBar"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionMED">
+   <property name="text">
+    <string>MED</string>
+   </property>
+  </action>
+  <action name="actionScreenings">
+   <property name="text">
+    <string>Screenings</string>
+   </property>
+  </action>
+  <action name="actionAllergy">
+   <property name="text">
+    <string>Allergy</string>
+   </property>
+  </action>
+  <action name="actionPain">
+   <property name="text">
+    <string>Pain</string>
+   </property>
+  </action>
+  <action name="actionDystonia">
+   <property name="text">
+    <string>Dystonia</string>
+   </property>
+  </action>
+  <action name="actionGyn_Pain">
+   <property name="text">
+    <string>Gyn.Pain</string>
+   </property>
+  </action>
+  <action name="actionHypotonia">
+   <property name="text">
+    <string>Hypotonia</string>
+   </property>
+  </action>
+  <action name="actionHead">
+   <property name="text">
+    <string>Head</string>
+   </property>
+  </action>
+  <action name="actionAbd_Pain">
+   <property name="text">
+    <string>Abd. Pain</string>
+   </property>
+  </action>
+  <action name="actionCold">
+   <property name="text">
+    <string>Cold</string>
+   </property>
+  </action>
+  <action name="actionPotency">
+   <property name="text">
+    <string>Potency</string>
+   </property>
+  </action>
+  <action name="actionJoints">
+   <property name="text">
+    <string>Joints</string>
+   </property>
+  </action>
+  <action name="actionNausea">
+   <property name="text">
+    <string>Nausea</string>
+   </property>
+  </action>
+  <action name="actionConstipation">
+   <property name="text">
+    <string>Constipation</string>
+   </property>
+  </action>
+  <action name="actionInt_Pain">
+   <property name="text">
+    <string>Int. Pain</string>
+   </property>
+  </action>
+  <action name="actionBloating">
+   <property name="text">
+    <string>Bloating</string>
+   </property>
+  </action>
+  <action name="actionGynecology">
+   <property name="text">
+    <string>Gynecology</string>
+   </property>
+  </action>
+  <action name="actionHypertension">
+   <property name="text">
+    <string>Hypertension</string>
+   </property>
+  </action>
+  <action name="actionThroat">
+   <property name="text">
+    <string>Throat</string>
+   </property>
+  </action>
+  <action name="actionDiarrhea">
+   <property name="text">
+    <string>Diarrhea</string>
+   </property>
+  </action>
+  <action name="actionMuscles">
+   <property name="text">
+    <string>Muscles</string>
+   </property>
+  </action>
+  <action name="actionCough">
+   <property name="text">
+    <string>Cough</string>
+   </property>
+  </action>
+  <action name="actionKidneys">
+   <property name="text">
+    <string>Kidneys</string>
+   </property>
+  </action>
+  <action name="actionBack">
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </action>
+  <action name="actionTrauma">
+   <property name="text">
+    <string>Trauma</string>
+   </property>
+  </action>
+  <action name="actionAsphyxia">
+   <property name="text">
+    <string>Asphyxia</string>
+   </property>
+  </action>
+  <action name="action1_0_9_9HZ">
+   <property name="text">
+    <string>1,0-9,9HZ</string>
+   </property>
+  </action>
+  <action name="action10_Hz">
+   <property name="text">
+    <string>10 Hz</string>
+   </property>
+  </action>
+  <action name="action20_HZ">
+   <property name="text">
+    <string>20 Hz</string>
+   </property>
+  </action>
+  <action name="action60_Hz">
+   <property name="text">
+    <string>60 Hz</string>
+   </property>
+  </action>
+  <action name="action77_Hz">
+   <property name="text">
+    <string>77 Hz</string>
+   </property>
+  </action>
+  <action name="action125_Hz">
+   <property name="text">
+    <string>125 Hz</string>
+   </property>
+  </action>
+  <action name="action140_Hz">
+   <property name="text">
+    <string>140 Hz</string>
+   </property>
+  </action>
+  <action name="action200_Hz">
+   <property name="text">
+    <string>200 Hz</string>
+   </property>
+  </action>
+  <action name="action7710">
+   <property name="text">
+    <string>7710</string>
+   </property>
+  </action>
+  <action name="action7720">
+   <property name="text">
+    <string>7720</string>
+   </property>
+  </action>
+  <action name="action77AM">
+   <property name="text">
+    <string>77AM</string>
+   </property>
+  </action>
+  <action name="actionDisable">
+   <property name="text">
+    <string>Disable</string>
+   </property>
+  </action>
+  <action name="actionUp_to_year_1_year">
+   <property name="text">
+    <string>Up to 1 year</string>
+   </property>
+  </action>
+  <action name="action1_3_Years">
+   <property name="text">
+    <string>1-3 Years</string>
+   </property>
+  </action>
+  <action name="action4_7_Years">
+   <property name="text">
+    <string>4-7 Years</string>
+   </property>
+  </action>
+  <action name="action7_12_Years">
+   <property name="text">
+    <string>7-12 Years</string>
+   </property>
+  </action>
+  <action name="actionGeneral">
+   <property name="text">
+    <string>General</string>
+   </property>
+  </action>
+  <action name="actionSound_cont">
+   <property name="text">
+    <string>Sound cont.</string>
+   </property>
+  </action>
+  <action name="actionSOund_But">
+   <property name="text">
+    <string>Sound But.</string>
+   </property>
+  </action>
+  <action name="actionBrightness">
+   <property name="text">
+    <string>Brightness</string>
+   </property>
+  </action>
+  <action name="actionEconomy">
+   <property name="text">
+    <string>Economy</string>
+   </property>
+  </action>
+  <action name="actionRecording">
+   <property name="text">
+    <string>Recording</string>
+   </property>
+  </action>
+  <action name="actionClock">
+   <property name="text">
+    <string>Clock</string>
+   </property>
+  </action>
+  <action name="actionTurquoise">
+   <property name="text">
+    <string>Turquoise</string>
+   </property>
+  </action>
+  <action name="actionWinter">
+   <property name="text">
+    <string>Winter</string>
+   </property>
+  </action>
+  <action name="actionBrozne">
+   <property name="text">
+    <string>Bronze</string>
+   </property>
+  </action>
+  <action name="actionNight">
+   <property name="text">
+    <string>Night</string>
+   </property>
+  </action>
+  <action name="actionOff">
+   <property name="text">
+    <string>Off</string>
+   </property>
+  </action>
+  <action name="actionSingly">
+   <property name="text">
+    <string>Singly</string>
+   </property>
+  </action>
+  <action name="actionDaily">
+   <property name="text">
+    <string>Daily</string>
+   </property>
+  </action>
+  <action name="actionEnglish">
+   <property name="text">
+    <string>English</string>
+   </property>
+  </action>
+  <action name="actionFrench">
+   <property name="text">
+    <string>French</string>
+   </property>
+  </action>
+  <action name="actionRussian">
+   <property name="text">
+    <string>Russian</string>
+   </property>
+  </action>
+  <action name="actionItalian">
+   <property name="text">
+    <string>Italian</string>
+   </property>
+  </action>
+  <action name="actionSpanish">
+   <property name="text">
+    <string>Spanish</string>
+   </property>
+  </action>
+  <action name="actionDeutsch">
+   <property name="text">
+    <string>Deutsch</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections>
