@@ -5,6 +5,7 @@
 //hi
 //hi test
 //I hate git
+//I can wreck omar in cod
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
