@@ -10,7 +10,7 @@
 //イタチ大好き
 //One last time
 // some body once told me the world....
-
+//hello
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
