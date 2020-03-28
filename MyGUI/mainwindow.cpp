@@ -9,6 +9,8 @@
 //Imagine GIT still being ass in 2020
 //イタチ大好き
 //One last time
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
