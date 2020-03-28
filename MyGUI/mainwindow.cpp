@@ -71,3 +71,4 @@ void MainWindow::on_pushButton_clicked()
        ui->label->setText("Status: ON");
     }
 }
+
