@@ -43,6 +43,7 @@ public:
     QListWidget *listWidget;
     QGraphicsView *graphicsView;
     QLabel *label;
+    QLabel *label_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -173,7 +174,7 @@ public:
         graphicsView->setStyleSheet(QStringLiteral(" background-color: grey"));
         label = new QLabel(centralwidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(120, 50, 111, 41));
+        label->setGeometry(QRect(10, 0, 211, 41));
         QFont font1;
         font1.setPointSize(30);
         font1.setBold(true);
@@ -181,6 +182,11 @@ public:
         font1.setWeight(75);
         label->setFont(font1);
         label->setStyleSheet(QStringLiteral("color: BLACK;"));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(120, 50, 111, 41));
+        label_2->setFont(font1);
+        label_2->setStyleSheet(QStringLiteral("color: BLACK;"));
         MainWindow->setCentralWidget(centralwidget);
         pushButton_6->raise();
         Bluetooth_On->raise();
@@ -196,9 +202,10 @@ public:
         Find_Device->raise();
         graphicsView->raise();
         label->raise();
+        label_2->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 349, 21));
+        menubar->setGeometry(QRect(0, 0, 349, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -224,7 +231,8 @@ public:
         Bluetoot_Off->setText(QApplication::translate("MainWindow", "Bluetooth Off", Q_NULLPTR));
         pushButton_2->setText(QString());
         pushButton_7->setText(QString());
-        label->setText(QApplication::translate("MainWindow", "DENAS", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "Status: OFF", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindow", "DENAS", Q_NULLPTR));
     } // retranslateUi
 
 };
