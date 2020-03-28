@@ -87,7 +87,7 @@ color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(/Users/jeffreyjose/Object-Oriented Software Eng/Github/MCT-Device-Interface/MyGUI/down.png);
+     <string notr="true">border-image: url(&quot;../Archive/down.png&quot;);
  background-color: white;
  border-radius:25px;
  border-color: black;
@@ -110,7 +110,7 @@ color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(/Users/jeffreyjose/Object-Oriented Software Eng/Github/MCT-Device-Interface/MyGUI/left.png);
+     <string notr="true">border-image: url(&quot;../Archive/left.png&quot;);
 background-color: white;
  border-radius:25px;
  border-color: black;
@@ -133,7 +133,7 @@ background-color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(/Users/jeffreyjose/Object-Oriented Software Eng/Github/MCT-Device-Interface/MyGUI/right.png);
+     <string notr="true">border-image: url(&quot;../Archive/right.png&quot;);
  background-color: white;
  border-radius:25px;
  border-color: black;
@@ -193,7 +193,7 @@ color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(/Users/jeffreyjose/Object-Oriented Software Eng/Github/MCT-Device-Interface/MyGUI/menu.png);
+     <string notr="true">border-image: url(&quot;../Archive/menu.png&quot;);
  background-color: white;
  border-radius:25px;
  border-color: black;
@@ -229,14 +229,14 @@ color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(/Users/jeffreyjose/Object-Oriented Software Eng/Github/MCT-Device-Interface/MyGUI/up.png);
- background-color: white;
- border-radius:25px;
- border-color: black;
- max-width:50px;
- max-height:50px;
- min-width:50px;
- min-height:50px;</string>
+     <string notr="true">border-image: url(&quot;../Archive/up.png&quot;);
+background-color: white;
+border-radius:25px;
+border-color: black;
+max-width:50px;
+max-height:50px;
+min-width:50px;
+min-height:50px;</string>
     </property>
     <property name="text">
      <string/>
@@ -252,7 +252,7 @@ color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(/Users/jeffreyjose/Object-Oriented Software Eng/Github/MCT-Device-Interface/MyGUI/back.png);
+     <string notr="true">border-image: url(&quot;../Archive/back.png&quot;);
  background-color: white;
  border-radius:25px;
  border-color: black;
@@ -333,7 +333,7 @@ color: white;
      <x>0</x>
      <y>0</y>
      <width>349</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
