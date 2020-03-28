@@ -7,6 +7,7 @@
 //I hate git
 //I can wreck omar in cod
 //Imagine GIT still being ass in 2020
+//イタチ大好き
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
