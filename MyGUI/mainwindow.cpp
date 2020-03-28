@@ -2,22 +2,11 @@
 #include "ui_mainwindow.h"
 #include <QtBluetooth>
 
-//hi
-//hi test
-//I hate git
-//I can wreck omar in cod
-//Imagine GIT still being ass in 2020
-//イタチ大好き
-//One last time
-// some body once told me the world....
-//hello
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //parent->setStyleSheet("background-color:white");
     ui->listWidget->hide();
     connect(disc, SIGNAL(deviceDiscovered(QBluetoothDeviceInfo)), this, SLOT(deviceDiscovered(QBluetoothDeviceInfo)));
     disc->start();
@@ -28,7 +17,6 @@ MainWindow::MainWindow(QWidget *parent)
         scene.addPixmap(pixmap);
         //ui->viewer->setScene(&scene);
 
-        // add here
         ui->graphicsView->setScene(&scene);
         ui->graphicsView->show();
 
@@ -40,7 +28,6 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-
 }
 
 
@@ -50,25 +37,21 @@ void MainWindow::on_Find_Device_clicked()
     ui->listWidget->clear();
     disc->stop();
     disc->start();
-
 }
 
 void MainWindow::on_Bluetooth_On_clicked()
 {
     socket->write("ON");
-
 }
 
 void MainWindow::on_Bluetoot_Off_clicked()
 {
     socket->write("OFF");
-
 }
 
 void MainWindow::deviceDiscovered(const QBluetoothDeviceInfo &device)
 {
     ui->listWidget->addItem(device.address().toString());
-
 }
 
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
@@ -81,7 +64,6 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 
 void MainWindow::on_pushButton_clicked()
 {
-
     if (ui->label->text() == "Status: ON"){
         ui->label->setText("Status: OFF");
     }else {
