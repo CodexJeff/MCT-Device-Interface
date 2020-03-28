@@ -481,11 +481,19 @@ min-height:50px;</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionMED">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/MED.jpg</normaloff>icons/MED.jpg</iconset>
+   </property>
    <property name="text">
     <string>MED</string>
    </property>
   </action>
   <action name="actionScreenings">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/Screening.png</normaloff>icons/Screening.png</iconset>
+   </property>
    <property name="text">
     <string>Screenings</string>
    </property>

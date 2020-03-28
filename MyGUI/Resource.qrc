@@ -1,2 +1,16 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/rec">
+        <file>icons/back.png</file>
+        <file>icons/Children.png</file>
+        <file>icons/down.png</file>
+        <file>icons/frequency.png</file>
+        <file>icons/left.png</file>
+        <file>icons/MED.jpg</file>
+        <file>icons/menu.png</file>
+        <file>icons/right.png</file>
+        <file>icons/Screening.png</file>
+        <file>icons/settings.png</file>
+        <file>icons/syringe.jpg</file>
+        <file>icons/up.png</file>
+    </qresource>
+</RCC>
