@@ -229,7 +229,7 @@ color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(&quot;../Archive/up.png&quot;);
+     <string notr="true">border-image: url(../Archive/up.png);
 background-color: white;
 border-radius:25px;
 border-color: black;

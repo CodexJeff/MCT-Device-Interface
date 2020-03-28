@@ -145,7 +145,7 @@ public:
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(150, 340, 50, 50));
-        pushButton_2->setStyleSheet(QLatin1String("border-image: url(\"../Archive/up.png\");\n"
+        pushButton_2->setStyleSheet(QLatin1String("border-image: url(../Archive/up.png);\n"
 "background-color: white;\n"
 "border-radius:25px;\n"
 "border-color: black;\n"
