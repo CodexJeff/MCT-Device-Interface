@@ -28,6 +28,9 @@ MainWindow::MainWindow(QWidget *parent)
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(MyTimerSlot()));
     timer->start(1000);
+
+    // testing hide property
+    ui->testButton->hide();
   }
 
 MainWindow::~MainWindow()
@@ -38,6 +41,10 @@ MainWindow::~MainWindow()
 void MainWindow::MyTimerSlot(){
     if(ui->lcdNumber->value() > 0){
         ui->lcdNumber->display(ui->lcdNumber->value() - 1);
+    }
+
+    if(ui->lcdNumber->value() < 25){
+        ui->testButton->show();
     }
 }
 
