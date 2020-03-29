@@ -31,8 +31,6 @@ private slots:
 
     void on_pushButton_clicked();
 
-    void on_graphicsView_rubberBandChanged(const QRect &viewportRect, const QPointF &fromScenePoint, const QPointF &toScenePoint);
-
 private:
     Ui::MainWindow *ui;
     QBluetoothDeviceDiscoveryAgent *disc = new QBluetoothDeviceDiscoveryAgent;
