@@ -293,7 +293,7 @@ min-height:50px;</string>
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>211</width>
+      <width>281</width>
       <height>41</height>
      </rect>
     </property>
@@ -315,8 +315,8 @@ min-height:50px;</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>50</y>
+      <x>150</x>
+      <y>40</y>
       <width>161</width>
       <height>41</height>
      </rect>
@@ -365,12 +365,12 @@ min-height:50px;</string>
     <property name="title">
      <string>MenuBar</string>
     </property>
-    <addaction name="actionMED"/>
-    <addaction name="actionScreenings"/>
     <addaction name="actionPrograms_2"/>
     <addaction name="actionFrequency_2"/>
     <addaction name="actionSettings_2"/>
     <addaction name="actionChildren_2"/>
+    <addaction name="actionMED_2"/>
+    <addaction name="actionScreening"/>
    </widget>
    <addaction name="menuMenuBar"/>
   </widget>
@@ -727,6 +727,24 @@ min-height:50px;</string>
    </property>
    <property name="text">
     <string>Children</string>
+   </property>
+  </action>
+  <action name="actionMED_2">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/rec/icons/MED.jpg</normaloff>:/rec/icons/MED.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>MED</string>
+   </property>
+  </action>
+  <action name="actionScreening">
+   <property name="icon">
+    <iconset resource="Resource.qrc">
+     <normaloff>:/rec/icons/Screening.png</normaloff>:/rec/icons/Screening.png</iconset>
+   </property>
+   <property name="text">
+    <string>Screening</string>
    </property>
   </action>
  </widget>
