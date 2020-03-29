@@ -31,6 +31,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     // testing hide property
     ui->testButton->hide();
+    setFixedSize(349, 663);
+
+    // trying to add button to widget
+    QPushButton *btn = new QPushButton("Tes Button", ui->widget);
   }
 
 MainWindow::~MainWindow()

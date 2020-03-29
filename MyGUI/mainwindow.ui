@@ -323,27 +323,11 @@ min-height:50px;</string>
      <string>DENAS</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>90</y>
-      <width>291</width>
-      <height>191</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: #aaaaaa;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLCDNumber" name="lcdNumber">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>170</y>
+      <x>240</x>
+      <y>480</y>
       <width>81</width>
       <height>41</height>
      </rect>
@@ -365,6 +349,22 @@ min-height:50px;</string>
      <string>PushButton</string>
     </property>
    </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>291</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::ActionsContextMenu</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
    <zorder>pushButton_6</zorder>
    <zorder>Bluetooth_On</zorder>
    <zorder>pushButton_3</zorder>
@@ -379,9 +379,9 @@ min-height:50px;</string>
    <zorder>Find_Device</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
-   <zorder>label_3</zorder>
    <zorder>lcdNumber</zorder>
    <zorder>testButton</zorder>
+   <zorder>widget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
