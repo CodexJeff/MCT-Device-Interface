@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QtBluetooth>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -12,25 +13,26 @@ MainWindow::MainWindow(QWidget *parent)
     connect(disc, SIGNAL(deviceDiscovered(QBluetoothDeviceInfo)), this, SLOT(deviceDiscovered(QBluetoothDeviceInfo)));
     disc->start();
 
-
-    QGraphicsScene scene;
-        QPixmap pixmap("/Users/omarsyed/MCT-Device-Interface/MyGui/temp.jpg");
-        scene.addPixmap(pixmap);
-        //ui->viewer->setScene(&scene);
-
-        ui->graphicsView->setScene(&scene);
-        ui->graphicsView->show();
-
-
     socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
-  }
 
+    // timer setup
+    ui->lcdNumber->display(30);
+    qDebug() << ui->lcdNumber->value();
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(MyTimerSlot()));
+    timer->start(1000);
+  }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+void MainWindow::MyTimerSlot(){
+    if(ui->lcdNumber->value() > 0){
+        ui->lcdNumber->display(ui->lcdNumber->value() - 1);
+    }
+}
 
 void MainWindow::on_Find_Device_clicked()
 {
