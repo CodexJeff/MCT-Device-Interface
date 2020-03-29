@@ -2,6 +2,13 @@
 #include "ui_mainwindow.h"
 #include <QtBluetooth>
 #include <QDebug>
+#include "children.h"
+#include "frequency.h"
+#include "med.h"
+#include "programs.h"
+#include "screening.h"
+#include "settings.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
