@@ -87,7 +87,7 @@ color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(down.png);
+     <string notr="true">border-image: url(:/rec/icons/down.png);
  background-color: white;
  border-radius:25px;
  border-color: black;
@@ -110,7 +110,7 @@ color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(left.png);
+     <string notr="true">border-image: url(:/rec/icons/left.png);
 background-color: white;
  border-radius:25px;
  border-color: black;
@@ -133,7 +133,7 @@ background-color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(right.png);
+     <string notr="true">border-image: url(:/rec/icons/right.png);
  background-color: white;
  border-radius:25px;
  border-color: black;
@@ -193,7 +193,7 @@ color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(menu.png);
+     <string notr="true">border-image: url(:/rec/icons/menu.png);
  background-color: white;
  border-radius:25px;
  border-color: black;
@@ -229,7 +229,7 @@ color: white;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(up.png);
+     <string notr="true">border-image: url(:/rec/icons/up.png);
 background-color: white;
 border-radius:25px;
 border-color: black;
@@ -252,7 +252,7 @@ min-height:50px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(back.png);
+     <string notr="true">border-image: url(:/rec/icons/back.png);
  background-color: white;
  border-radius:25px;
  border-color: black;
