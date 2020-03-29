@@ -30,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     timer->start(1000);
 
     // testing hide property
-    ui->testButton->hide();
+    //ui->testButton->hide();
     setFixedSize(349, 663);
 
     // trying to add button to widget
@@ -48,7 +48,7 @@ void MainWindow::MyTimerSlot(){
     }
 
     if(ui->lcdNumber->value() < 25){
-        ui->testButton->show();
+        //ui->testButton->show();
     }
 }
 

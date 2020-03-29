@@ -336,25 +336,12 @@ min-height:50px;</string>
      <double>2.000000000000000</double>
     </property>
    </widget>
-   <widget class="QPushButton" name="testButton">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>570</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>90</y>
-      <width>291</width>
+      <width>311</width>
       <height>191</height>
      </rect>
     </property>
@@ -362,7 +349,8 @@ min-height:50px;</string>
      <enum>Qt::ActionsContextMenu</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background: grey ;
+</string>
     </property>
    </widget>
    <zorder>pushButton_6</zorder>
@@ -380,7 +368,6 @@ min-height:50px;</string>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
    <zorder>lcdNumber</zorder>
-   <zorder>testButton</zorder>
    <zorder>widget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -389,7 +376,7 @@ min-height:50px;</string>
      <x>0</x>
      <y>0</y>
      <width>349</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenuBar">
