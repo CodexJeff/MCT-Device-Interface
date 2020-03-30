@@ -19,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     battery.cpp \
     children.cpp \
+    denaslistitem.cpp \
     frequency.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 HEADERS += \
     battery.h \
     children.h \
+    denaslistitem.h \
     frequency.h \
     mainwindow.h \
     med.h \

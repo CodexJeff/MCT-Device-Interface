@@ -8,7 +8,7 @@
 #include <QtBluetooth>
 #include <QDebug>
 
-#include <map>
+#include <stack>
 
 #include "battery.h"
 #include "ui_mainwindow.h"
@@ -18,6 +18,7 @@
 #include "programs.h"
 #include "screening.h"
 #include "settings.h"
+#include "denaslistitem.h"
 
 using namespace std;
 
@@ -45,15 +46,19 @@ private slots:
     void on_Bluetoot_Off_clicked();
     void deviceDiscovered(const QBluetoothDeviceInfo &device);
 
+    void on_pushButton_7_clicked();
+
 private:
     Ui::MainWindow *ui;
-    map<QListWidgetItem*,QListWidget*> m;
+    int counter;
+    Battery *battery;
+    QListWidget *currentList;
+    stack<QListWidget*> history;
+    // bluetooth related member variables
     QBluetoothDeviceDiscoveryAgent *disc = new QBluetoothDeviceDiscoveryAgent;
     QBluetoothSocket *socket;
     QString string;
     QTimer *batteryTimer;
-    int counter;
-    Battery *battery;
 
     void mainListSetup();
 };

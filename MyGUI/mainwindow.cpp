@@ -13,11 +13,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setFixedSize(349, 663);
 
-    ui->listWidget->hide();
+    //ui->listWidget->hide(); // what is listWidget?
     ui->list_2->hide();
     ui->list_3->hide();
 
     counter = -1;
+    currentList = ui->list;
     mainListSetup();
 
     // bluetooth related setup
@@ -33,39 +34,39 @@ MainWindow::~MainWindow()
 
 void MainWindow::mainListSetup(){
 
-    QListWidgetItem *program = new QListWidgetItem;
+    DenasListItem *program = new DenasListItem;
       program->setText("Programs");
       program->setTextAlignment(Qt::AlignHCenter);
       program->setSizeHint(QSize(0, 35));
-      m[program]=ui->list_2;
+      program->setAssocList(ui->list_2);
       ui->list->insertItem(0, program);
 
-    QListWidgetItem *frequency = new QListWidgetItem;
+    DenasListItem *frequency = new DenasListItem;
       frequency->setText("Frequency");
       frequency->setTextAlignment(Qt::AlignHCenter);
       frequency->setSizeHint(QSize(0, 35));
-      m[frequency]=ui->list_3;
+      frequency->setAssocList(ui->list_3);
       ui->list->insertItem(1, frequency);
 
-    QListWidgetItem *med = new QListWidgetItem;
+    DenasListItem *med = new DenasListItem;
       med->setText("Med");
       med->setTextAlignment(Qt::AlignHCenter);
       med->setSizeHint(QSize(0, 35));
       ui->list->insertItem(2, med);
 
-    QListWidgetItem *screening = new QListWidgetItem;
+    DenasListItem *screening = new DenasListItem;
       screening->setText("Screening");
       screening->setTextAlignment(Qt::AlignHCenter);
       screening->setSizeHint(QSize(0, 35));
       ui->list->insertItem(2, screening);
 
-    QListWidgetItem *children = new QListWidgetItem;
+    DenasListItem *children = new DenasListItem;
       children->setText("Children");
       children->setTextAlignment(Qt::AlignHCenter);
       children->setSizeHint(QSize(0, 35));
       ui->list->insertItem(2, children);
 
-    QListWidgetItem *settings = new QListWidgetItem;
+    DenasListItem *settings = new DenasListItem;
       settings->setText("Settings");
       settings->setTextAlignment(Qt::AlignHCenter);
       settings->setSizeHint(QSize(0, 35));
@@ -77,8 +78,40 @@ void MainWindow::on_batteryTimer_activated(){
     ui->batteryIndicator->setText("Battery: " + QString::number(battery->batteryStatus()));
 }
 
-void MainWindow::on_Find_Device_clicked()
-{
+void MainWindow::on_pushButton_clicked(){
+    DenasListItem *dli = ((DenasListItem*)(ui->list->currentItem()));
+    if(dli->getAssocList() != NULL){
+        history.push(currentList);
+        currentList->hide();
+        currentList = dli->getAssocList();
+        counter = -1;
+        currentList->show();
+    }
+}
+
+void MainWindow::on_pushButton_3_clicked(){
+    if (!(counter > currentList->count() - 2)) counter ++;
+    currentList->setCurrentItem(currentList->item(counter));
+}
+
+void MainWindow::on_pushButton_2_clicked(){
+    if (counter > 0) counter --;
+    currentList->setCurrentItem(currentList->item(counter));
+}
+
+void MainWindow::on_pushButton_7_clicked(){
+    if(!history.empty()){
+        currentList->hide();
+        currentList = history.top();
+        history.pop();
+        counter = -1;
+        currentList->show();
+    }
+}
+
+// bluetooth function definitions
+
+void MainWindow::on_Find_Device_clicked(){
     ui->listWidget->show();
     ui->listWidget->clear();
     disc->stop();
@@ -99,22 +132,4 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item){
     ui->listWidget->addItem(string);
     static const QString serviceUuid(QStringLiteral("00001101-0000-1000-8000-00805F9B34FB"));
     socket->connectToService(QBluetoothAddress(string), QBluetoothUuid(serviceUuid), QIODevice::ReadWrite);
-}
-
-void MainWindow::on_pushButton_clicked(){
-    if(m.find(ui->listWidget->currentItem()) == m.end()){
-        qDebug() << "Not found";
-    }else{
-        m[ui->listWidget->currentItem()]->show();
-    }
-}
-
-void MainWindow::on_pushButton_3_clicked(){
-    if (!(counter > ui->list->count() - 2)) counter ++;
-    ui->list->setCurrentItem(ui->list->item(counter));
-}
-
-void MainWindow::on_pushButton_2_clicked(){
-    if (counter > 0) counter --;
-    ui->list->setCurrentItem(ui->list->item(counter));
 }
