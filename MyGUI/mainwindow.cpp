@@ -14,6 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
+    battery = new Battery();
+
     // this is the ui setup
     ui->setupUi(this);
     ui->listWidget->hide();
@@ -23,11 +26,9 @@ MainWindow::MainWindow(QWidget *parent)
     socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
 
     // timer setup
-    ui->lcdNumber->display(30);
-    qDebug() << ui->lcdNumber->value();
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(MyTimerSlot()));
-    timer->start(1000);
+    batteryTimer = new QTimer(this);
+    connect(batteryTimer, SIGNAL(timeout()), this, SLOT(on_batteryTimer_activated()));
+    batteryTimer->start(1000);
 
     // testing hide property
     //ui->testButton->hide();
@@ -73,11 +74,6 @@ MainWindow::MainWindow(QWidget *parent)
       settings->setTextAlignment(Qt::AlignHCenter);
       settings->setSizeHint(QSize(0, 35));
       ui->list->insertItem(2, settings);
-
-
-
-
-
     //ui->list->addItem()
   }
 
@@ -86,14 +82,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::MyTimerSlot(){
-    if(ui->lcdNumber->value() > 0){
-        ui->lcdNumber->display(ui->lcdNumber->value() - 1);
-    }
-
-    if(ui->lcdNumber->value() < 25){
-        //ui->testButton->show();
-    }
+void MainWindow::on_batteryTimer_activated(){
+    if(battery->drain() == 0) QCoreApplication::quit();
+    ui->batteryIndicator->setText("Battery: " + QString::number(battery->batteryStatus()));
 }
 
 void MainWindow::on_Find_Device_clicked()

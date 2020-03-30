@@ -5,6 +5,7 @@
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QBluetoothSocket>
 #include <QListWidgetItem>
+#include "battery.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,7 +32,7 @@ private slots:
 
     void on_pushButton_clicked();
 
-    void MyTimerSlot();
+    void on_batteryTimer_activated();
 
     void on_pushButton_3_clicked();
 
@@ -42,8 +43,9 @@ private:
     QBluetoothDeviceDiscoveryAgent *disc = new QBluetoothDeviceDiscoveryAgent;
     QBluetoothSocket *socket;
     QString string;
-    QTimer *timer;
+    QTimer *batteryTimer;
     int counter;
+    Battery *battery;
 };
 #endif // MAINWINDOW_H
 

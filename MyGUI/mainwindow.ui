@@ -299,19 +299,6 @@ min-height:50px;</string>
      <string>MCT</string>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdNumber">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>480</y>
-      <width>81</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="value" stdset="0">
-     <double>2.000000000000000</double>
-    </property>
-   </widget>
    <widget class="QListWidget" name="list">
     <property name="geometry">
      <rect>
@@ -347,7 +334,7 @@ font-size: 20px ;
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>9</x>
+      <x>10</x>
       <y>50</y>
       <width>331</width>
       <height>21</height>
@@ -356,6 +343,22 @@ font-size: 20px ;
     <property name="styleSheet">
      <string notr="true">background: #B1B1B1;</string>
     </property>
+    <widget class="QLabel" name="batteryIndicator">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>3</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Battery: 100</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <zorder>pushButton_6</zorder>
    <zorder>Bluetooth_On</zorder>
@@ -370,7 +373,6 @@ font-size: 20px ;
    <zorder>listWidget</zorder>
    <zorder>Find_Device</zorder>
    <zorder>label_2</zorder>
-   <zorder>lcdNumber</zorder>
    <zorder>list</zorder>
    <zorder>label_3</zorder>
    <zorder>widget</zorder>
@@ -381,7 +383,7 @@ font-size: 20px ;
      <x>0</x>
      <y>0</y>
      <width>349</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenuBar">
