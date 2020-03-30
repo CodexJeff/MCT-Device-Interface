@@ -151,3 +151,15 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item){
     static const QString serviceUuid(QStringLiteral("00001101-0000-1000-8000-00805F9B34FB"));
     socket->connectToService(QBluetoothAddress(string), QBluetoothUuid(serviceUuid), QIODevice::ReadWrite);
 }
+
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    if(!history.empty()){
+        currentList->hide();
+        currentList = ui->list;
+        history.pop();
+        counter = -1;
+        currentList->show();
+    }
+}
