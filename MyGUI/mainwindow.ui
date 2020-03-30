@@ -280,7 +280,7 @@ min-height:50px;</string>
      <rect>
       <x>140</x>
       <y>10</y>
-      <width>71</width>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -409,12 +409,57 @@ font-size: 20px ;
     </property>
     <item>
      <property name="text">
-      <string>Apples</string>
+      <string>1-0 - 9,9 Hz</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Pears</string>
+      <string>10 Hz</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>20 Hz</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>60 Hz</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string> 77 Hz</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>125 Hz</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>140 Hz</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>200 Hz</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>&lt;&lt;7710&gt;&gt;</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>&lt;&lt;7720&gt;&gt;</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>&lt;&lt;77AM&gt;&gt;</string>
      </property>
     </item>
    </widget>
