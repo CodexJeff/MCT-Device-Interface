@@ -360,6 +360,64 @@ font-size: 20px ;
      </property>
     </widget>
    </widget>
+   <widget class="QListWidget" name="list_2">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>331</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background : white ;
+color : black ;
+font-size: 20px ;
+</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Test Item 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Test Item 2</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QListWidget" name="list_3">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>331</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background : white ;
+color : black ;
+font-size: 20px ;
+</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Apples</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Pears</string>
+     </property>
+    </item>
+   </widget>
    <zorder>pushButton_6</zorder>
    <zorder>Bluetooth_On</zorder>
    <zorder>pushButton_3</zorder>
@@ -376,6 +434,8 @@ font-size: 20px ;
    <zorder>list</zorder>
    <zorder>label_3</zorder>
    <zorder>widget</zorder>
+   <zorder>list_2</zorder>
+   <zorder>list_3</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
