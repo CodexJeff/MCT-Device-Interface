@@ -33,6 +33,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    Battery* getBattery();
 
 private slots:
     void on_listWidget_itemClicked(QListWidgetItem *item);
@@ -45,7 +46,6 @@ private slots:
     void on_Bluetooth_On_clicked();
     void on_Bluetoot_Off_clicked();
     void deviceDiscovered(const QBluetoothDeviceInfo &device);
-
     void on_pushButton_7_clicked();
 
 private:

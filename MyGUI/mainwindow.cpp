@@ -37,6 +37,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+Battery* MainWindow::getBattery(){return battery;}
+
 void MainWindow::mainListSetup(){
 
     DenasListItem *program = new DenasListItem;
