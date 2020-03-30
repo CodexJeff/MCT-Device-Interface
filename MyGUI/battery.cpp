@@ -6,17 +6,11 @@ Battery::Battery()
     drainAmount = 0.125;
 }
 
-int Battery::batteryStatus(){
-    return (int)level;
-}
+int Battery::batteryStatus(){return (int)level;}
 
-void Battery::addDrain(float x){
-    drainAmount += x;
-}
+void Battery::addDrain(float x){drainAmount += x;}
 
-void Battery::remDrain(float x){
-    if(drainAmount - x >= 0.05) drainAmount -= x;
-}
+void Battery::remDrain(float x){if(drainAmount - x >= 0.05) drainAmount -= x;}
 
 int Battery::drain(){
     level -= drainAmount;
