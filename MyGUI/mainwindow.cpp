@@ -16,6 +16,11 @@ MainWindow::MainWindow(QWidget *parent)
     //ui->listWidget->hide(); // what is listWidget?
     ui->list_2->hide();
     ui->list_3->hide();
+    ui->list_4->hide();
+      ui->list_5->hide();
+    ui->list_6->hide();
+   ui->list_7->hide();
+
 
     counter = -1;
     currentList = ui->list;
@@ -52,24 +57,28 @@ void MainWindow::mainListSetup(){
       med->setText("Med");
       med->setTextAlignment(Qt::AlignHCenter);
       med->setSizeHint(QSize(0, 35));
+      med->setAssocList(ui->list_4);
       ui->list->insertItem(2, med);
 
     DenasListItem *screening = new DenasListItem;
       screening->setText("Screening");
       screening->setTextAlignment(Qt::AlignHCenter);
       screening->setSizeHint(QSize(0, 35));
+      screening->setAssocList(ui->list_5);
       ui->list->insertItem(2, screening);
 
     DenasListItem *children = new DenasListItem;
       children->setText("Children");
       children->setTextAlignment(Qt::AlignHCenter);
       children->setSizeHint(QSize(0, 35));
+      children->setAssocList(ui->list_6);
       ui->list->insertItem(2, children);
 
     DenasListItem *settings = new DenasListItem;
       settings->setText("Settings");
       settings->setTextAlignment(Qt::AlignHCenter);
       settings->setSizeHint(QSize(0, 35));
+      settings->setAssocList(ui->list_7);
       ui->list->insertItem(2, settings);
 }
 
