@@ -43,45 +43,45 @@ Battery* MainWindow::getBattery(){return battery;}
 void MainWindow::mainListSetup(){
 
     DenasListItem *program = new DenasListItem;
-      program->setText("Programs");
+      program->setText("PROGRAMS");
       program->setTextAlignment(Qt::AlignHCenter);
       program->setSizeHint(QSize(0, 35));
       program->setAssocList(ui->list_2);
       ui->list->insertItem(0, program);
 
     DenasListItem *frequency = new DenasListItem;
-      frequency->setText("Frequency");
+      frequency->setText("FREQUENCY");
       frequency->setTextAlignment(Qt::AlignHCenter);
       frequency->setSizeHint(QSize(0, 35));
       frequency->setAssocList(ui->list_3);
       ui->list->insertItem(1, frequency);
 
     DenasListItem *med = new DenasListItem;
-      med->setText("Med");
+      med->setText("MED");
       med->setTextAlignment(Qt::AlignHCenter);
       med->setSizeHint(QSize(0, 35));
       med->setFlag("economy");
       ui->list->insertItem(2, med);
 
     DenasListItem *screening = new DenasListItem;
-      screening->setText("Screening");
+      screening->setText("SCREENING");
       screening->setTextAlignment(Qt::AlignHCenter);
       screening->setSizeHint(QSize(0, 35));
-      ui->list->insertItem(2, screening);
+      ui->list->insertItem(3, screening);
 
     DenasListItem *children = new DenasListItem;
-      children->setText("Children");
+      children->setText("CHILDREN");
       children->setTextAlignment(Qt::AlignHCenter);
       children->setSizeHint(QSize(0, 35));
       children->setAssocList(ui->list_6);
-      ui->list->insertItem(2, children);
+      ui->list->insertItem(4, children);
 
     DenasListItem *settings = new DenasListItem;
-      settings->setText("Settings");
+      settings->setText("SETTINGS");
       settings->setTextAlignment(Qt::AlignHCenter);
       settings->setSizeHint(QSize(0, 35));
       settings->setAssocList(ui->list_7);
-      ui->list->insertItem(2, settings);
+      ui->list->insertItem(5, settings);
 }
 
 void MainWindow::on_batteryTimer_activated(){
