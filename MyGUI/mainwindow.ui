@@ -17,7 +17,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color:#e3e0d5;</string>
+   <string notr="true">background-color:#BDF0FD;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="cursor">
@@ -715,7 +715,7 @@ font-size: 20px ;
      <x>0</x>
      <y>0</y>
      <width>349</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenuBar">
