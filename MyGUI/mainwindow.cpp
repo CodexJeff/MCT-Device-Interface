@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     battery = new Battery();
     batteryTimer = new QTimer(this);
+    batteryPrompt = "Battery: ";
     connect(batteryTimer, SIGNAL(timeout()), this, SLOT(on_batteryTimer_activated()));
     batteryTimer->start(1000);
 
@@ -59,6 +60,7 @@ void MainWindow::mainListSetup(){
       med->setText("Med");
       med->setTextAlignment(Qt::AlignHCenter);
       med->setSizeHint(QSize(0, 35));
+      med->setFlag("economy");
       ui->list->insertItem(2, med);
 
     DenasListItem *screening = new DenasListItem;
@@ -84,17 +86,24 @@ void MainWindow::mainListSetup(){
 
 void MainWindow::on_batteryTimer_activated(){
     if(battery->drain() == 0) QCoreApplication::quit();
-    ui->batteryIndicator->setText("Battery: " + QString::number(battery->batteryStatus()));
+    ui->batteryIndicator->setText(QString::fromStdString(batteryPrompt) + QString::number(battery->batteryStatus()));
 }
 
 void MainWindow::on_pushButton_clicked(){
+
+
     DenasListItem *dli = ((DenasListItem*)(ui->list->currentItem()));
-    if(dli->getAssocList() != NULL){
-        history.push(currentList);
-        currentList->hide();
-        currentList = dli->getAssocList();
-        counter = -1;
-        currentList->show();
+
+    if(dli->getFlag().compare("economy") == 0){
+        batteryPrompt = "ECO " + batteryPrompt;
+    }else{
+        if(dli->getAssocList() != NULL){
+            history.push(currentList);
+            currentList->hide();
+            currentList = dli->getAssocList();
+            counter = -1;
+            currentList->show();
+        }
     }
 }
 

@@ -54,6 +54,7 @@ private:
     Battery *battery;
     QListWidget *currentList;
     stack<QListWidget*> history;
+    string batteryPrompt;
     // bluetooth related member variables
     QBluetoothDeviceDiscoveryAgent *disc = new QBluetoothDeviceDiscoveryAgent;
     QBluetoothSocket *socket;
