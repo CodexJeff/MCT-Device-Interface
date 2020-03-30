@@ -20,8 +20,12 @@ public:
 
 private:
     QListWidget *associatedList;
+<<<<<<< HEAD
      QScreen *associatedDisplay;
      string modeFlag;
+=======
+   //  QScreen *associatedDisplay;
+>>>>>>> bd0630d8cd7493f369405838f614a3d269fe1913
 
 signals:
 

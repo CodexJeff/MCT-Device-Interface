@@ -613,11 +613,6 @@ color : black ;
 font-size: 20px ;
 </string>
     </property>
-    <item>
-     <property name="text">
-      <string>New Item</string>
-     </property>
-    </item>
    </widget>
    <widget class="QListWidget" name="list_6">
     <property name="geometry">

@@ -18,9 +18,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->list_2->hide();
     ui->list_3->hide();
     ui->list_4->hide();
-      ui->list_5->hide();
+    ui->list_5->hide();
     ui->list_6->hide();
-   ui->list_7->hide();
+    ui->list_7->hide();
 
 
     counter = -1;
