@@ -275,37 +275,13 @@ min-height:50px;</string>
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>281</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>30</pointsize>
-      <weight>75</weight>
-      <italic>false</italic>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: BLACK;</string>
-    </property>
-    <property name="text">
-     <string>Status: OFF</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>40</y>
-      <width>161</width>
-      <height>41</height>
+      <x>140</x>
+      <y>10</y>
+      <width>71</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -320,7 +296,7 @@ min-height:50px;</string>
      <string notr="true">color: BLACK;</string>
     </property>
     <property name="text">
-     <string>DENAS</string>
+     <string>MCT</string>
     </property>
    </widget>
    <widget class="QLCDNumber" name="lcdNumber">
@@ -336,21 +312,49 @@ min-height:50px;</string>
      <double>2.000000000000000</double>
     </property>
    </widget>
+   <widget class="QListWidget" name="list">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>331</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background : white ;
+color : black ;
+font-size: 20px ;
+</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>69</y>
+      <width>331</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: grey;</string>
+    </property>
+    <property name="text">
+     <string>                                   MAIN MENU</string>
+    </property>
+   </widget>
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>90</y>
-      <width>311</width>
-      <height>191</height>
+      <x>9</x>
+      <y>50</y>
+      <width>331</width>
+      <height>21</height>
      </rect>
     </property>
-    <property name="contextMenuPolicy">
-     <enum>Qt::ActionsContextMenu</enum>
-    </property>
     <property name="styleSheet">
-     <string notr="true">background: grey ;
-</string>
+     <string notr="true">background: #B1B1B1;</string>
     </property>
    </widget>
    <zorder>pushButton_6</zorder>
@@ -365,9 +369,10 @@ min-height:50px;</string>
    <zorder>pushButton_7</zorder>
    <zorder>listWidget</zorder>
    <zorder>Find_Device</zorder>
-   <zorder>label</zorder>
    <zorder>label_2</zorder>
    <zorder>lcdNumber</zorder>
+   <zorder>list</zorder>
+   <zorder>label_3</zorder>
    <zorder>widget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">

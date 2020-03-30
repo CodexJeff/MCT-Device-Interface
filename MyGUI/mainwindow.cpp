@@ -34,7 +34,51 @@ MainWindow::MainWindow(QWidget *parent)
     setFixedSize(349, 663);
 
     // trying to add button to widget
-    QPushButton *btn = new QPushButton("Tes Button", ui->widget);
+    //QPushButton *btn = new QPushButton("Tes Button", ui->widget);
+    counter = -1;
+    //ui->list->
+
+    QListWidgetItem *program = new QListWidgetItem;
+      program->setText("Programs");
+      program->setTextAlignment(Qt::AlignHCenter);
+      program->setSizeHint(QSize(0, 35));
+      ui->list->insertItem(0, program);
+
+    QListWidgetItem *frequency = new QListWidgetItem;
+      frequency->setText("Frequency");
+      frequency->setTextAlignment(Qt::AlignHCenter);
+      frequency->setSizeHint(QSize(0, 35));
+      ui->list->insertItem(1, frequency);
+
+    QListWidgetItem *med = new QListWidgetItem;
+      med->setText("Med");
+      med->setTextAlignment(Qt::AlignHCenter);
+      med->setSizeHint(QSize(0, 35));
+      ui->list->insertItem(2, med);
+
+    QListWidgetItem *screening = new QListWidgetItem;
+      screening->setText("Screening");
+      screening->setTextAlignment(Qt::AlignHCenter);
+      screening->setSizeHint(QSize(0, 35));
+      ui->list->insertItem(2, screening);
+
+    QListWidgetItem *children = new QListWidgetItem;
+      children->setText("Children");
+      children->setTextAlignment(Qt::AlignHCenter);
+      children->setSizeHint(QSize(0, 35));
+      ui->list->insertItem(2, children);
+
+    QListWidgetItem *settings = new QListWidgetItem;
+      settings->setText("Settings");
+      settings->setTextAlignment(Qt::AlignHCenter);
+      settings->setSizeHint(QSize(0, 35));
+      ui->list->insertItem(2, settings);
+
+
+
+
+
+    //ui->list->addItem()
   }
 
 MainWindow::~MainWindow()
@@ -73,6 +117,7 @@ void MainWindow::on_Bluetoot_Off_clicked()
 void MainWindow::deviceDiscovered(const QBluetoothDeviceInfo &device)
 {
     ui->listWidget->addItem(device.address().toString());
+    ui->listWidget->setCurrentRow(1);
 }
 
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
@@ -85,9 +130,25 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 
 void MainWindow::on_pushButton_clicked()
 {
-    if (ui->label->text() == "Status: ON"){
-        ui->label->setText("Status: OFF");
-    }else {
-       ui->label->setText("Status: ON");
+//    if (ui->label->text() == "Status: ON"){
+//        ui->label->setText("Status: OFF");
+//    }else {
+//       ui->label->setText("Status: ON");
+//    }
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    if (!(counter > ui->list->count() - 2)){
+        counter ++;
     }
+    ui->list->setCurrentItem(ui->list->item(counter));
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    if (counter > 0){
+        counter --;
+    }
+    ui->list->setCurrentItem(ui->list->item(counter));
 }

@@ -33,12 +33,17 @@ private slots:
 
     void MyTimerSlot();
 
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     QBluetoothDeviceDiscoveryAgent *disc = new QBluetoothDeviceDiscoveryAgent;
     QBluetoothSocket *socket;
     QString string;
     QTimer *timer;
+    int counter;
 };
 #endif // MAINWINDOW_H
 
