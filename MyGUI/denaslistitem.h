@@ -15,7 +15,7 @@ public:
 
 private:
     QListWidget *associatedList;
-    // QDisplay *associatedDisplay; <- might use later on
+     QScreen *associatedDisplay;
 
 signals:
 

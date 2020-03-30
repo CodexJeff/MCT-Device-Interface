@@ -57,14 +57,12 @@ void MainWindow::mainListSetup(){
       med->setText("Med");
       med->setTextAlignment(Qt::AlignHCenter);
       med->setSizeHint(QSize(0, 35));
-      med->setAssocList(ui->list_4);
       ui->list->insertItem(2, med);
 
     DenasListItem *screening = new DenasListItem;
       screening->setText("Screening");
       screening->setTextAlignment(Qt::AlignHCenter);
       screening->setSizeHint(QSize(0, 35));
-      screening->setAssocList(ui->list_5);
       ui->list->insertItem(2, screening);
 
     DenasListItem *children = new DenasListItem;
