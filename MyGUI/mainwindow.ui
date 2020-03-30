@@ -380,12 +380,122 @@ font-size: 20px ;
     </property>
     <item>
      <property name="text">
-      <string>Test Item 1</string>
+      <string>Allergy</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Test Item 2</string>
+      <string>Pain</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Int. Pain</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Bloating</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Dystonia</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Gyn. pain</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Gynecology</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Hypertension</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Hyptonia</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Head</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Throat</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Diarrhea</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Abd. pain</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Constipation</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Muscles</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Cold</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Potency</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Cough</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Kidnerys</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Back</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Joints</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Nausea</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Trauma</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ashphyxia</string>
      </property>
     </item>
    </widget>
@@ -410,6 +520,15 @@ font-size: 20px ;
     <item>
      <property name="text">
       <string>1-0 - 9,9 Hz</string>
+     </property>
+     <property name="foreground">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
      </property>
     </item>
     <item>
