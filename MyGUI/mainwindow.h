@@ -51,12 +51,18 @@ private slots:
 
     void on_pushButton_8_clicked();
 
+
+    void on_pushButton_6_clicked();
+
 private:
     Ui::MainWindow *ui;
     int counter;
     Battery *battery;
     QListWidget *currentList;
     stack<QListWidget*> history;
+    stack<QWidget*> historyWid;
+    QListWidget *currentWidget;
+
     string batteryPrompt;
     // bluetooth related member variables
     QBluetoothDeviceDiscoveryAgent *disc = new QBluetoothDeviceDiscoveryAgent;

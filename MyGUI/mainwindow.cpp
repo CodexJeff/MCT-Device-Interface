@@ -61,12 +61,14 @@ void MainWindow::mainListSetup(){
       med->setText("MED");
       med->setTextAlignment(Qt::AlignHCenter);
       med->setSizeHint(QSize(0, 35));
+      med->setAssocList(ui->list_4);
       med->setFlag("economy");
       ui->list->insertItem(2, med);
 
     DenasListItem *screening = new DenasListItem;
       screening->setText("SCREENING");
       screening->setTextAlignment(Qt::AlignHCenter);
+      screening->setAssocList(ui->list_5);
       screening->setSizeHint(QSize(0, 35));
       ui->list->insertItem(3, screening);
 
@@ -124,15 +126,55 @@ void MainWindow::on_pushButton_2_clicked(){
     if (counter > 0) counter --;
     currentList->setCurrentItem(currentList->item(counter));
 }
-
+//back button
 void MainWindow::on_pushButton_7_clicked(){
+    DenasListItem *dli2 = ((DenasListItem*)(ui->list->currentItem()));
+
     if(!history.empty()){
         currentList->hide();
         currentList = history.top();
         history.pop();
         counter = -1;
         currentList->show();
+        qDebug() << "test";
     }
+    else if (ui->label_3->text().compare("MED") == 0){
+        ui->medWidget->hide();
+        ui->list->show();
+
+
+    }else if (ui->label_3->text().compare("SCREENING") == 0){
+        ui->medWidget->hide();
+        ui->list->show();
+
+
+    }
+
+}
+//menu button
+void MainWindow::on_pushButton_8_clicked()
+{
+    if(!history.empty()){
+
+        currentList->hide();
+        currentList = ui->list;
+        history.pop();
+        counter = -1;
+        currentList->show();
+        qDebug()<< "test";
+    } else if (ui->label_3->text().compare("MED") == 0){
+        ui->medWidget->hide();
+        ui->list->show();
+
+
+    }else if (ui->label_3->text().compare("SCREENING") == 0){
+        ui->medWidget->hide();
+        ui->list->show();
+
+
+    }
+
+
 }
 
 // bluetooth function definitions
@@ -161,13 +203,5 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item){
 }
 
 
-void MainWindow::on_pushButton_8_clicked()
-{
-    if(!history.empty()){
-        currentList->hide();
-        currentList = ui->list;
-        history.pop();
-        counter = -1;
-        currentList->show();
-    }
-}
+
+
