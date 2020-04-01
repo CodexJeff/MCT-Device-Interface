@@ -6,6 +6,11 @@ class settings
 {
 public:
     settings();
+
+
+ private:
+
+
 };
 
 #endif // SETTINGS_H

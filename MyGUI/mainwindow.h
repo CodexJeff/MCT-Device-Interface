@@ -1,14 +1,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+
 #include <QMainWindow>
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QBluetoothSocket>
 #include <QListWidgetItem>
 #include <QtBluetooth>
 #include <QDebug>
-
+#include <QStack>
 #include <stack>
+
 
 #include "battery.h"
 #include "ui_mainwindow.h"
@@ -57,6 +59,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     int counter;
+
     Battery *battery;
     QListWidget *currentList;
     stack<QListWidget*> history;

@@ -1,9 +1,13 @@
 #include "mainwindow.h"
+#include <iostream>
 
+#include <cstdlib>
+using namespace std;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
 
     battery = new Battery();
     batteryTimer = new QTimer(this);
@@ -128,7 +132,6 @@ void MainWindow::on_pushButton_2_clicked(){
 }
 //back button
 void MainWindow::on_pushButton_7_clicked(){
-    DenasListItem *dli2 = ((DenasListItem*)(ui->list->currentItem()));
 
     if(!history.empty()){
         currentList->hide();
@@ -136,7 +139,8 @@ void MainWindow::on_pushButton_7_clicked(){
         history.pop();
         counter = -1;
         currentList->show();
-        qDebug() << "test";
+
+
     }
     else if (ui->label_3->text().compare("MED") == 0){
         ui->medWidget->hide();
