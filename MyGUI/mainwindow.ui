@@ -328,7 +328,10 @@ font-size: 20px ;
      <string notr="true">background: grey;</string>
     </property>
     <property name="text">
-     <string>                                   MAIN MENU</string>
+     <string>MAIN MENU</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QWidget" name="widget" native="true">
@@ -686,6 +689,49 @@ font-size: 20px ;
      </property>
     </item>
    </widget>
+   <widget class="QWidget" name="medWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>331</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white ;
+</string>
+    </property>
+    <widget class="QLCDNumber" name="lcdNumber">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>30</y>
+       <width>181</width>
+       <height>111</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>280</y>
+      <width>331</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: grey;</string>
+    </property>
+    <property name="text">
+     <string>TIMER  </string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
    <zorder>pushButton_6</zorder>
    <zorder>Bluetooth_On</zorder>
    <zorder>pushButton_3</zorder>
@@ -708,6 +754,8 @@ font-size: 20px ;
    <zorder>list_5</zorder>
    <zorder>list_6</zorder>
    <zorder>list_7</zorder>
+   <zorder>medWidget</zorder>
+   <zorder>label_4</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -715,7 +763,7 @@ font-size: 20px ;
      <x>0</x>
      <y>0</y>
      <width>349</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenuBar">

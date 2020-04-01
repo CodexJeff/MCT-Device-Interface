@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     setFixedSize(349, 663);
 
     //ui->listWidget->hide(); // what is listWidget?
+    ui->medWidget->hide();
     ui->list_2->hide();
     ui->list_3->hide();
     ui->list_4->hide();
@@ -104,6 +105,13 @@ void MainWindow::on_pushButton_clicked(){
             counter = -1;
             currentList->show();
         }
+    }
+    if(dli->text().compare("MED") == 0){
+        ui->medWidget->show();
+        ui->label_3->setText("MED");
+    }else if(dli->text().compare("SCREENING") == 0){
+        ui->medWidget->show();
+        ui->label_3->setText("SCREENING");
     }
 }
 
