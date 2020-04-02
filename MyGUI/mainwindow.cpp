@@ -114,6 +114,7 @@ void MainWindow::on_pushButton_clicked(){
 
 
     DenasListItem *dli = ((DenasListItem*)(ui->list->currentItem()));
+    ui->label_3->setText(dli->text());
 
     if(dli->getFlag().compare("economy") == 0){
         batteryPrompt = "ECO " + batteryPrompt;
