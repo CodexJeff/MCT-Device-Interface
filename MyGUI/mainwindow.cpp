@@ -180,8 +180,6 @@ void MainWindow::on_pushButton_7_clicked(){
     }else if (ui->label_3->text().compare("SCREENING") == 0){
         ui->medWidget->hide();
         ui->list->show();
-
-
     }
 
 }
