@@ -5,13 +5,7 @@ MCTClock::MCTClock()
 
 
 }
-void MCTClock::showTime(){
 
-
-
-
-
-}
 QString MCTClock::getTime(){
     QTime time = QTime::currentTime();
 

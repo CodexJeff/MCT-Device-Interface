@@ -8,7 +8,6 @@ class MCTClock
 {
 public:
     MCTClock();
-    void showTime();
      QString getTime();
 private:
     QString text;
