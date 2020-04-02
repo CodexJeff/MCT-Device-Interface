@@ -371,6 +371,16 @@ font-size: 20px ;
        <height>20</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>System</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-style:comic-sans</string>
+     </property>
      <property name="text">
       <string>00:00</string>
      </property>
@@ -759,28 +769,6 @@ font-size: 20px ;
    <zorder>list_7</zorder>
    <zorder>medWidget</zorder>
    <zorder>label_4</zorder>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>349</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuMenuBar">
-    <property name="title">
-     <string>MenuBar</string>
-    </property>
-    <addaction name="actionPrograms_2"/>
-    <addaction name="actionFrequency_2"/>
-    <addaction name="actionSettings_2"/>
-    <addaction name="actionChildren_2"/>
-    <addaction name="actionMED_2"/>
-    <addaction name="actionScreening"/>
-   </widget>
-   <addaction name="menuMenuBar"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionMED">
