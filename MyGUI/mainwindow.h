@@ -14,7 +14,6 @@
 
 
 #include "mctclock.h"
-#include "digitalclock.h"
 #include "battery.h"
 #include "ui_mainwindow.h"
 #include "children.h"
