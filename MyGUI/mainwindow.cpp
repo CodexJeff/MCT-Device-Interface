@@ -9,12 +9,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
 
-     mctClock = new MCTClock();
+    mctClock = new MCTClock();
     clockTimer = new QTimer(this);
     connect(clockTimer, SIGNAL(timeout()), this, SLOT(on_clockTimer_activated()));
     clockTimer->start(1000);
 
-
+    pulseCounter = 0;
+    pulseTimer = new QTimer(this);
+    connect(pulseTimer, SIGNAL(timeout()), this, SLOT(on_pulseTimer_activated()));
 
     battery = new Battery();
     batteryTimer = new QTimer(this);
@@ -103,6 +105,16 @@ void MainWindow::on_batteryTimer_activated(){
     ui->batteryIndicator->setText(QString::fromStdString(batteryPrompt) + QString::number(battery->batteryStatus()));
 }
 
+void MainWindow::on_pulseTimer_activated(){
+    if(pulseCounter > 0){
+        pulseCounter --;
+        ui->lcdNumber->display(pulseCounter);
+    }else{
+        pulseTimer->stop();
+        pulseCounter = 0;
+    }
+}
+
 void MainWindow::on_clockTimer_activated(){
 ui->clockIndicator->setText(mctClock->getTime());
 
@@ -110,8 +122,6 @@ ui->clockIndicator->setText(mctClock->getTime());
 
 
 void MainWindow::on_pushButton_clicked(){
-
-
 
     DenasListItem *dli = ((DenasListItem*)(ui->list->currentItem()));
     ui->label_3->setText(dli->text());
@@ -130,6 +140,13 @@ void MainWindow::on_pushButton_clicked(){
     if(dli->text().compare("MED") == 0){
         ui->medWidget->show();
         ui->label_3->setText("MED");
+        if(pulseCounter <= 0){ // make sure user cannot "spam" ok-button (would result in countdown being reset during countdown)
+            ui->medWidget->show();
+            ui->label_3->setText("MED");
+            pulseCounter = 15;
+            ui->lcdNumber->display(pulseCounter);
+            pulseTimer->start(1000);
+        }
     }else if(dli->text().compare("SCREENING") == 0){
         ui->medWidget->show();
         ui->label_3->setText("SCREENING");
@@ -154,14 +171,12 @@ void MainWindow::on_pushButton_7_clicked(){
         history.pop();
         counter = -1;
         currentList->show();
-
-
     }
     else if (ui->label_3->text().compare("MED") == 0){
+        pulseTimer->stop();
+        pulseCounter = 0;
         ui->medWidget->hide();
         ui->list->show();
-
-
     }else if (ui->label_3->text().compare("SCREENING") == 0){
         ui->medWidget->hide();
         ui->list->show();

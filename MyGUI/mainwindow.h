@@ -12,7 +12,6 @@
 
 #include <stack>
 
-
 #include "mctclock.h"
 #include "battery.h"
 #include "ui_mainwindow.h"
@@ -44,6 +43,7 @@ private slots:
     void on_pushButton_clicked();
     void on_clockTimer_activated();
     void on_batteryTimer_activated();
+    void on_pulseTimer_activated();
     void on_pushButton_3_clicked();
     void on_pushButton_2_clicked();
     // bluetooth related slots
@@ -52,16 +52,12 @@ private slots:
     void on_Bluetoot_Off_clicked();
     void deviceDiscovered(const QBluetoothDeviceInfo &device);
     void on_pushButton_7_clicked();
-
-
     void on_pushButton_8_clicked();
-
-
-
 
 private:
     Ui::MainWindow *ui;
     int counter;
+    int pulseCounter;
     MCTClock *mctClock;
     Battery *battery;
     QListWidget *currentList;
@@ -76,7 +72,7 @@ private:
     QString string;
     QTimer *batteryTimer;
     QTimer *clockTimer;
-
+    QTimer *pulseTimer;
 
     void mainListSetup();
 };
