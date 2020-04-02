@@ -75,7 +75,6 @@ void MainWindow::mainListSetup(){
       med->setTextAlignment(Qt::AlignHCenter);
       med->setSizeHint(QSize(0, 35));
       med->setAssocList(ui->list_4);
-      med->setFlag("economy");
       ui->list->insertItem(2, med);
 
     DenasListItem *screening = new DenasListItem;
@@ -239,3 +238,16 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item){
 
 
 
+
+void MainWindow::on_list_7_itemClicked(QListWidgetItem *item){
+    if (item->text().compare("Economy") == 0){
+        //item->setText("economyon");
+            item->setText("Economy On");
+            batteryPrompt = "ECO " + batteryPrompt;
+    }
+    else if (item->text().compare("Economy On") == 0){
+        //item->setText("economyon");
+            item->setText("Economy");
+    }
+
+}
