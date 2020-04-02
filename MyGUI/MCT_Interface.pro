@@ -23,6 +23,7 @@ SOURCES += \
     frequency.cpp \
     main.cpp \
     mainwindow.cpp \
+    mctclock.cpp \
     med.cpp \
     programs.cpp \
     screening.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     denaslistitem.h \
     frequency.h \
     mainwindow.h \
+    mctclock.h \
     med.h \
     programs.h \
     screening.h \

@@ -9,6 +9,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
 
+     mctClock = new MCTClock();
+    clockTimer = new QTimer(this);
+    connect(clockTimer, SIGNAL(timeout()), this, SLOT(on_clockTimer_activated()));
+    clockTimer->start(1000);
+
+
+
     battery = new Battery();
     batteryTimer = new QTimer(this);
     batteryPrompt = "Battery: ";
@@ -96,7 +103,14 @@ void MainWindow::on_batteryTimer_activated(){
     ui->batteryIndicator->setText(QString::fromStdString(batteryPrompt) + QString::number(battery->batteryStatus()));
 }
 
+void MainWindow::on_clockTimer_activated(){
+ui->clockIndicator->setText(mctClock->getTime());
+
+}
+
+
 void MainWindow::on_pushButton_clicked(){
+
 
 
     DenasListItem *dli = ((DenasListItem*)(ui->list->currentItem()));

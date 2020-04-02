@@ -9,9 +9,12 @@
 #include <QtBluetooth>
 #include <QDebug>
 #include <QStack>
+
 #include <stack>
 
 
+#include "mctclock.h"
+#include "digitalclock.h"
 #include "battery.h"
 #include "ui_mainwindow.h"
 #include "children.h"
@@ -40,6 +43,7 @@ public:
 private slots:
     void on_listWidget_itemClicked(QListWidgetItem *item);
     void on_pushButton_clicked();
+    void on_clockTimer_activated();
     void on_batteryTimer_activated();
     void on_pushButton_3_clicked();
     void on_pushButton_2_clicked();
@@ -54,12 +58,12 @@ private slots:
     void on_pushButton_8_clicked();
 
 
-    void on_pushButton_6_clicked();
+
 
 private:
     Ui::MainWindow *ui;
     int counter;
-
+    MCTClock *mctClock;
     Battery *battery;
     QListWidget *currentList;
     stack<QListWidget*> history;
@@ -72,6 +76,8 @@ private:
     QBluetoothSocket *socket;
     QString string;
     QTimer *batteryTimer;
+    QTimer *clockTimer;
+
 
     void mainListSetup();
 };

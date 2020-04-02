@@ -6,6 +6,7 @@ class children
 {
 public:
     children();
+
 };
 
 #endif // CHILDREN_H
