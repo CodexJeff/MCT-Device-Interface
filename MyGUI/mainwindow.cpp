@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     setFixedSize(349, 663);
 
     //ui->listWidget->hide(); // what is listWidget?
+    ui->allergy_widget->hide();
     ui->medWidget->hide();
     ui->list_2->hide();
     ui->list_3->hide();
@@ -38,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     counter = -1;
-    currentList = ui->list;
+    currentWidget = ui->list;
     mainListSetup();
 
     // bluetooth related setup
@@ -107,7 +108,7 @@ void MainWindow::on_batteryTimer_activated(){
 void MainWindow::on_pulseTimer_activated(){
     if(pulseCounter > 0){
         pulseCounter --;
-        ui->lcdNumber->display(pulseCounter);
+        currentCountdown->display(pulseCounter);
     }else{
         pulseTimer->stop();
         pulseCounter = 0;
@@ -115,13 +116,43 @@ void MainWindow::on_pulseTimer_activated(){
 }
 
 void MainWindow::on_clockTimer_activated(){
-ui->clockIndicator->setText(mctClock->getTime());
-
+    ui->clockIndicator->setText(mctClock->getTime());
 }
 
+void MainWindow::updateScreen(QWidget *w){
+    history.push(currentWidget);
+    currentWidget->hide();
+    currentWidget = w;
+    counter = -1;
+    currentWidget->show();
+}
 
 void MainWindow::on_pushButton_clicked(){
 
+    qDebug() << currentWidget->metaObject()->className();
+    std::string cWClass = currentWidget->metaObject()->className();
+    if(cWClass.compare("QListWidget") == 0){
+        QListWidgetItem *item = ((QListWidget*)currentWidget)->currentItem();
+        if(item->text().compare("PROGRAMS") == 0){
+            updateScreen(ui->list_2);
+        }else if(item->text().compare("SETTINGS") == 0){
+            updateScreen(ui->list_7);
+        }else if(item->text().compare("Allergy") == 0){
+            updateScreen(ui->allergy_widget);
+
+            currentCountdown = ui->lcdNumber_2;
+            pulseCounter = 15;
+            currentCountdown->display(pulseCounter);
+            pulseTimer->start(1000);
+        }else if(item->text().compare("Economy") == 0){
+            batteryPrompt = "ECO " + batteryPrompt;
+        }
+        qDebug() << item->text();
+    }else{
+
+    }
+
+    /*
     DenasListItem *dli = ((DenasListItem*)(ui->list->currentItem()));
     ui->label_3->setText(dli->text());
 
@@ -129,11 +160,11 @@ void MainWindow::on_pushButton_clicked(){
         batteryPrompt = "ECO " + batteryPrompt;
     }else{
         if(dli->getAssocList() != NULL){
-            history.push(currentList);
-            currentList->hide();
-            currentList = dli->getAssocList();
+            history.push(currentWidget);
+            currentWidget->hide();
+            currentWidget = dli->getAssocList();
             counter = -1;
-            currentList->show();
+            currentWidget->show();
         }
     }
     if(dli->text().compare("MED") == 0){
@@ -150,26 +181,33 @@ void MainWindow::on_pushButton_clicked(){
         ui->medWidget->show();
         ui->label_3->setText("SCREENING");
     }
+    */
 }
 
 void MainWindow::on_pushButton_3_clicked(){
-    if (!(counter > currentList->count() - 2)) counter ++;
-    currentList->setCurrentItem(currentList->item(counter));
+    if (!(counter > ((QListWidget*)(currentWidget))->count() - 2)) counter ++;
+    ((QListWidget*)(currentWidget))->setCurrentItem(((QListWidget*)(currentWidget))->item(counter));
 }
 
 void MainWindow::on_pushButton_2_clicked(){
     if (counter > 0) counter --;
-    currentList->setCurrentItem(currentList->item(counter));
+    ((QListWidget*)(currentWidget))->setCurrentItem(((QListWidget*)(currentWidget))->item(counter));
 }
 //back button
 void MainWindow::on_pushButton_7_clicked(){
 
+    if(currentWidget == ui->allergy_widget){
+        qDebug() << "Activated Pog";
+        pulseTimer->stop();
+        pulseCounter = 0;
+    }
+
     if(!history.empty()){
-        currentList->hide();
-        currentList = history.top();
+        currentWidget->hide();
+        currentWidget = history.top();
         history.pop();
         counter = -1;
-        currentList->show();
+        currentWidget->show();
     }
     else if (ui->label_3->text().compare("MED") == 0){
         pulseTimer->stop();
@@ -187,11 +225,11 @@ void MainWindow::on_pushButton_8_clicked()
 {
     if(!history.empty()){
 
-        currentList->hide();
-        currentList = ui->list;
+        currentWidget->hide();
+        currentWidget = ui->list;
         history.pop();
         counter = -1;
-        currentList->show();
+        currentWidget->show();
         qDebug()<< "test";
     } else if (ui->label_3->text().compare("MED") == 0){
         ui->medWidget->hide();

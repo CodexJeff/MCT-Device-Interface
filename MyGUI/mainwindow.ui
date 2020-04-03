@@ -745,6 +745,50 @@ font-size: 20px ;
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
+   <widget class="QWidget" name="allergy_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>331</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white;</string>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>4</x>
+       <y>10</y>
+       <width>321</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Place on skin to reduce allergies PogChamp</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="lcdNumber_2">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>80</y>
+       <width>131</width>
+       <height>51</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
    <zorder>pushButton_6</zorder>
    <zorder>Bluetooth_On</zorder>
    <zorder>pushButton_3</zorder>
@@ -769,6 +813,7 @@ font-size: 20px ;
    <zorder>list_7</zorder>
    <zorder>medWidget</zorder>
    <zorder>label_4</zorder>
+   <zorder>allergy_widget</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionMED">

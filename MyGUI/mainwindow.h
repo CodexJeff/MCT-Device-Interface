@@ -62,10 +62,11 @@ private:
     int pulseCounter;
     MCTClock *mctClock;
     Battery *battery;
-    QListWidget *currentList;
-    stack<QListWidget*> history;
-    stack<QWidget*> historyWid;
-    QListWidget *currentWidget;
+    QWidget *currentWidget;
+    stack<QWidget*> history;
+    QLCDNumber *currentCountdown;
+    //stack<QWidget*> historyWid;
+    //QListWidget *currentWidget;
 
     string batteryPrompt;
     // bluetooth related member variables
@@ -77,5 +78,6 @@ private:
     QTimer *pulseTimer;
 
     void mainListSetup();
+    void updateScreen(QWidget*);
 };
 #endif // MAINWINDOW_H
