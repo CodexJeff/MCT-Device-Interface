@@ -136,9 +136,11 @@ void MainWindow::updateScreen(QWidget *w){
 void MainWindow::on_pushButton_clicked(){
 
     qDebug() << currentWidget->metaObject()->className();
+
     std::string cWClass = currentWidget->metaObject()->className();
     if(cWClass.compare("QListWidget") == 0){
         QListWidgetItem *item = ((QListWidget*)currentWidget)->currentItem();
+        ui->label_3->setText(item->text());
         if(item->text().compare("PROGRAMS") == 0){
             updateScreen(ui->list_2);
         }else if(item->text().compare("SETTINGS") == 0){
@@ -146,6 +148,7 @@ void MainWindow::on_pushButton_clicked(){
         }else if(item->text().compare("Allergy") == 0){
             updateScreen(ui->allergy_widget);
             ui->label->clear();
+            qDebug() << "OMEGA LUL...... WARZONE IS A SHIT GAME";
             ui->label->setText("Place electrode at upper abdomen\n and 7th cervical vertebra area. You\n have 30 seconds before therapy begins.");
 
             currentCountdown = ui->lcdNumber_2;
@@ -173,7 +176,12 @@ void MainWindow::on_pushButton_clicked(){
             currentCountdown->display(pulseCounter);
             pulseTimer->start(1000);
         }else if(item->text().compare("Economy") == 0){
+            item->setText("Economy is ON");
             batteryPrompt = "ECO " + batteryPrompt;
+        }else if(item->text().compare("Economy is ON") == 0){
+            item->setText("Economy is OFF");
+        }else if(item->text().compare("Economy is OFF") == 0){
+            item->setText("Economy is ON");
         }else if(item->text().compare("MED") == 0){
             updateScreen(ui->medWidget);
             ui->label_3->setText("MED");
@@ -243,6 +251,9 @@ void MainWindow::on_pushButton_7_clicked(){
         pulseCounter = 0;
         therapyCounter = 20*60;
     }
+    if(history.top() == ui->list_2){
+        ui->label_3->setText("PROGRAMS");
+    }
 
     if(!history.empty()){
         currentWidget->hide();
@@ -260,6 +271,13 @@ void MainWindow::on_pushButton_7_clicked(){
         ui->medWidget->hide();
         ui->list->show();
     }
+
+    if(history.empty()){
+        ui->label_3->setText("MAIN MENU");
+    }
+
+
+
 
 }
 //menu button
