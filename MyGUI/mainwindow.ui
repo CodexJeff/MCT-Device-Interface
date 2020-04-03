@@ -772,7 +772,7 @@ font-size: 20px ;
       </font>
      </property>
      <property name="text">
-      <string>Place on skin to reduce allergies PogChamp</string>
+      <string>Epstien killed himself</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -786,6 +786,22 @@ font-size: 20px ;
        <width>131</width>
        <height>51</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QSlider" name="horizontalSlider">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>140</y>
+       <width>160</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="whatsThis">
+      <string>un bannna</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </widget>

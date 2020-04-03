@@ -38,7 +38,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->list_6->hide();
     ui->list_7->hide();
 
-
     counter = -1;
     currentWidget = ui->list;
     mainListSetup();
@@ -148,12 +147,12 @@ void MainWindow::on_pushButton_clicked(){
         }else if(item->text().compare("Allergy") == 0){
             updateScreen(ui->allergy_widget);
             ui->label->clear();
-            qDebug() << "OMEGA LUL...... WARZONE IS A SHIT GAME";
+            //qDebug() << "OMEGA LUL...... WARZONE IS A SHIT GAME";
             ui->label->setText("Place electrode at upper abdomen\n and 7th cervical vertebra area. You\n have 30 seconds before therapy begins.");
 
             currentCountdown = ui->lcdNumber_2;
             pulseCounter = 30;
-            therapyCounter = 20*60;
+            therapyCounter = 5*60;
             currentCountdown->display(pulseCounter);
             pulseTimer->start(1000);
         }
@@ -163,6 +162,7 @@ void MainWindow::on_pushButton_clicked(){
                     ui->label->setText("Place electrode at painful area.\n You have 30 seconds before therapy begins.");
                     currentCountdown = ui->lcdNumber_2;
                     pulseCounter = 30;
+                    therapyCounter = 15*60;
                     currentCountdown->display(pulseCounter);
                     pulseTimer->start(1000);
                 }
@@ -173,6 +173,7 @@ void MainWindow::on_pushButton_clicked(){
             ui->label->setText("Place electrode at intesnely painful area.\n You have 30 seconds before therapy begins.");
             currentCountdown = ui->lcdNumber_2;
             pulseCounter = 30;
+            therapyCounter = 15*60;
             currentCountdown->display(pulseCounter);
             pulseTimer->start(1000);
         }else if(item->text().compare("Economy") == 0){
