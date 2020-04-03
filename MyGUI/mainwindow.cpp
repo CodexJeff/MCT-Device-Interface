@@ -139,12 +139,35 @@ void MainWindow::on_pushButton_clicked(){
             updateScreen(ui->list_7);
         }else if(item->text().compare("Allergy") == 0){
             updateScreen(ui->allergy_widget);
+            ui->label->clear();
+            ui->label->setText("Place electrode at upper abdomen\n and 7th cervical vertebra area. You\n have 30 seconds before therapy begins.");
 
             currentCountdown = ui->lcdNumber_2;
-            pulseCounter = 15;
+            pulseCounter = 30;
             currentCountdown->display(pulseCounter);
             pulseTimer->start(1000);
-        }else if(item->text().compare("Economy") == 0){
+        }
+        else if(item->text().compare("Pain") == 0){
+                    updateScreen(ui->allergy_widget);
+                    ui->label->clear();
+                    ui->label->setText("Place electrode at painful area.\n You have 30 seconds before therapy begins.");
+                    currentCountdown = ui->lcdNumber_2;
+                    pulseCounter = 30;
+                    currentCountdown->display(pulseCounter);
+                    pulseTimer->start(1000);
+                }
+
+        else if(item->text().compare("Int. Pain") == 0){
+                    updateScreen(ui->allergy_widget);
+                    ui->label->clear();
+                    ui->label->setText("Place electrode at intesnely painful area.\n You have 30 seconds before therapy begins.");
+                    currentCountdown = ui->lcdNumber_2;
+                    pulseCounter = 30;
+                    currentCountdown->display(pulseCounter);
+                    pulseTimer->start(1000);
+                }
+
+        else if(item->text().compare("Economy") == 0){
             batteryPrompt = "ECO " + batteryPrompt;
         }
         qDebug() << item->text();
@@ -240,10 +263,7 @@ void MainWindow::on_pushButton_8_clicked()
         ui->medWidget->hide();
         ui->list->show();
 
-
     }
-
-
 }
 
 // bluetooth function definitions
