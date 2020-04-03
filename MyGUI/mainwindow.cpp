@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     clockTimer->start(1000);
 
     pulseCounter = 0;
+    therapyCounter = 20*60;
     pulseTimer = new QTimer(this);
     connect(pulseTimer, SIGNAL(timeout()), this, SLOT(on_pulseTimer_activated()));
 
@@ -109,9 +110,14 @@ void MainWindow::on_pulseTimer_activated(){
     if(pulseCounter > 0){
         pulseCounter --;
         currentCountdown->display(pulseCounter);
-    }else{
-        pulseTimer->stop();
+    }else if(therapyCounter > 0){
         pulseCounter = 0;
+        currentCountdown->display(therapyCounter);
+        therapyCounter --;
+        ui->label->setText("Therapy is now active");
+    }else{
+        therapyCounter = 0;
+        pulseTimer->stop();
     }
 }
 
@@ -144,6 +150,7 @@ void MainWindow::on_pushButton_clicked(){
 
             currentCountdown = ui->lcdNumber_2;
             pulseCounter = 30;
+            therapyCounter = 20*60;
             currentCountdown->display(pulseCounter);
             pulseTimer->start(1000);
         }
@@ -158,17 +165,28 @@ void MainWindow::on_pushButton_clicked(){
                 }
 
         else if(item->text().compare("Int. Pain") == 0){
-                    updateScreen(ui->allergy_widget);
-                    ui->label->clear();
-                    ui->label->setText("Place electrode at intesnely painful area.\n You have 30 seconds before therapy begins.");
-                    currentCountdown = ui->lcdNumber_2;
-                    pulseCounter = 30;
-                    currentCountdown->display(pulseCounter);
-                    pulseTimer->start(1000);
-                }
-
-        else if(item->text().compare("Economy") == 0){
+            updateScreen(ui->allergy_widget);
+            ui->label->clear();
+            ui->label->setText("Place electrode at intesnely painful area.\n You have 30 seconds before therapy begins.");
+            currentCountdown = ui->lcdNumber_2;
+            pulseCounter = 30;
+            currentCountdown->display(pulseCounter);
+            pulseTimer->start(1000);
+        }else if(item->text().compare("Economy") == 0){
             batteryPrompt = "ECO " + batteryPrompt;
+        }else if(item->text().compare("MED") == 0){
+            updateScreen(ui->medWidget);
+            ui->label_3->setText("MED");
+            pulseCounter = 15;
+            currentCountdown = ui->lcdNumber;
+            ui->lcdNumber->display(pulseCounter);
+            pulseTimer->start(1000);
+        }else if(item->text().compare("SCREENING") == 0){
+            updateScreen(ui->medWidget);
+            currentCountdown = ui->lcdNumber;
+            ui->label_3->setText("SCREENING");
+            ui->lcdNumber->display(pulseCounter);
+            pulseTimer->start(1000);
         }
         qDebug() << item->text();
     }else{
@@ -223,6 +241,7 @@ void MainWindow::on_pushButton_7_clicked(){
         qDebug() << "Activated Pog";
         pulseTimer->stop();
         pulseCounter = 0;
+        therapyCounter = 20*60;
     }
 
     if(!history.empty()){

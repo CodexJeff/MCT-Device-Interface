@@ -60,6 +60,7 @@ private:
     Ui::MainWindow *ui;
     int counter;
     int pulseCounter;
+    int therapyCounter;
     MCTClock *mctClock;
     Battery *battery;
     QWidget *currentWidget;
