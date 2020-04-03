@@ -10,10 +10,13 @@ public:
     void addDrain(float);
     void remDrain(float);
     int drain();
+    bool getEcoState();
+    void setEcoState(bool);
 
 private:
     float level;
     float drainAmount;
+    bool eco;
 };
 
 #endif // BATTERY_H

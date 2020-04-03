@@ -1,13 +1,9 @@
 #include "mainwindow.h"
-#include <iostream>
 
-#include <cstdlib>
-using namespace std;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-
 
     mctClock = new MCTClock();
     clockTimer = new QTimer(this);
@@ -28,8 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setFixedSize(349, 663);
 
-    //ui->listWidget->hide(); // what is listWidget?
-    ui->allergy_widget->hide();
+    ui->therapyWidget->hide();
     ui->medWidget->hide();
     ui->list_2->hide();
     ui->list_3->hide();
@@ -40,7 +35,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     counter = -1;
     currentWidget = ui->list;
-    mainListSetup();
 
     // bluetooth related setup
     connect(disc, SIGNAL(deviceDiscovered(QBluetoothDeviceInfo)), this, SLOT(deviceDiscovered(QBluetoothDeviceInfo)));
@@ -54,51 +48,6 @@ MainWindow::~MainWindow()
 }
 
 Battery* MainWindow::getBattery(){return battery;}
-
-void MainWindow::mainListSetup(){
-
-    DenasListItem *program = new DenasListItem;
-      program->setText("PROGRAMS");
-      program->setTextAlignment(Qt::AlignHCenter);
-      program->setSizeHint(QSize(0, 35));
-      program->setAssocList(ui->list_2);
-      ui->list->insertItem(0, program);
-
-    DenasListItem *frequency = new DenasListItem;
-      frequency->setText("FREQUENCY");
-      frequency->setTextAlignment(Qt::AlignHCenter);
-      frequency->setSizeHint(QSize(0, 35));
-      frequency->setAssocList(ui->list_3);
-      ui->list->insertItem(1, frequency);
-
-    DenasListItem *med = new DenasListItem;
-      med->setText("MED");
-      med->setTextAlignment(Qt::AlignHCenter);
-      med->setSizeHint(QSize(0, 35));
-      med->setAssocList(ui->list_4);
-      ui->list->insertItem(2, med);
-
-    DenasListItem *screening = new DenasListItem;
-      screening->setText("SCREENING");
-      screening->setTextAlignment(Qt::AlignHCenter);
-      screening->setAssocList(ui->list_5);
-      screening->setSizeHint(QSize(0, 35));
-      ui->list->insertItem(3, screening);
-
-    DenasListItem *children = new DenasListItem;
-      children->setText("CHILDREN");
-      children->setTextAlignment(Qt::AlignHCenter);
-      children->setSizeHint(QSize(0, 35));
-      children->setAssocList(ui->list_6);
-      ui->list->insertItem(4, children);
-
-    DenasListItem *settings = new DenasListItem;
-      settings->setText("SETTINGS");
-      settings->setTextAlignment(Qt::AlignHCenter);
-      settings->setSizeHint(QSize(0, 35));
-      settings->setAssocList(ui->list_7);
-      ui->list->insertItem(5, settings);
-}
 
 void MainWindow::on_batteryTimer_activated(){
     if(battery->drain() == 0) QCoreApplication::quit();
@@ -132,106 +81,44 @@ void MainWindow::updateScreen(QWidget *w){
     currentWidget->show();
 }
 
+void MainWindow::updateScreen(QWidget *w, int programFlag, int cdTime, int theraTime){
+    updateScreen(w);
+    std::string prompt;
+    switch(programFlag){
+        case 0: prompt = "Place electrode at upper abdomen\n and 7th cervical vertebra area. You\n have 30 seconds before therapy begins."; break;
+        case 1: prompt = "Place electrode at painful area.\n You have 30 seconds before therapy begins."; break;
+        case 2: prompt = "Place electrode on intensly painful area.\n You have 30 seconds before therapy begins."; break;
+        case 3: prompt = "Now in MED"; break;
+        case 4: prompt = "Now in SCREENING"; break;
+    }
+    ui->label->clear();
+    ui->label->setText(QString::fromStdString(prompt));
+    currentCountdown = ui->lcdNumber_2;
+    pulseCounter = cdTime;
+    therapyCounter = theraTime;
+    currentCountdown->display(pulseCounter);
+    pulseTimer->start(1000);
+}
+
 void MainWindow::on_pushButton_clicked(){
 
-    qDebug() << currentWidget->metaObject()->className();
-
-    std::string cWClass = currentWidget->metaObject()->className();
-    if(cWClass.compare("QListWidget") == 0){
+    std::string widgetType = currentWidget->metaObject()->className();
+    if(widgetType.compare("QListWidget") == 0){
         QListWidgetItem *item = ((QListWidget*)currentWidget)->currentItem();
-        ui->label_3->setText(item->text());
-        if(item->text().compare("PROGRAMS") == 0){
-            updateScreen(ui->list_2);
-        }else if(item->text().compare("SETTINGS") == 0){
-            updateScreen(ui->list_7);
-        }else if(item->text().compare("Allergy") == 0){
-            updateScreen(ui->allergy_widget);
-            ui->label->clear();
-            //qDebug() << "OMEGA LUL...... WARZONE IS A SHIT GAME";
-            ui->label->setText("Place electrode at upper abdomen\n and 7th cervical vertebra area. You\n have 30 seconds before therapy begins.");
-
-            currentCountdown = ui->lcdNumber_2;
-            pulseCounter = 30;
-            therapyCounter = 5*60;
-            currentCountdown->display(pulseCounter);
-            pulseTimer->start(1000);
-        }
-        else if(item->text().compare("Pain") == 0){
-                    updateScreen(ui->allergy_widget);
-                    ui->label->clear();
-                    ui->label->setText("Place electrode at painful area.\n You have 30 seconds before therapy begins.");
-                    currentCountdown = ui->lcdNumber_2;
-                    pulseCounter = 30;
-                    therapyCounter = 15*60;
-                    currentCountdown->display(pulseCounter);
-                    pulseTimer->start(1000);
-                }
-
-        else if(item->text().compare("Int. Pain") == 0){
-            updateScreen(ui->allergy_widget);
-            ui->label->clear();
-            ui->label->setText("Place electrode at intesnely painful area.\n You have 30 seconds before therapy begins.");
-            currentCountdown = ui->lcdNumber_2;
-            pulseCounter = 30;
-            therapyCounter = 15*60;
-            currentCountdown->display(pulseCounter);
-            pulseTimer->start(1000);
-        }else if(item->text().compare("Economy") == 0){
-            item->setText("Economy is ON");
-            batteryPrompt = "ECO " + batteryPrompt;
-        }else if(item->text().compare("Economy is ON") == 0){
-            item->setText("Economy is OFF");
-        }else if(item->text().compare("Economy is OFF") == 0){
-            item->setText("Economy is ON");
-        }else if(item->text().compare("MED") == 0){
-            updateScreen(ui->medWidget);
-            ui->label_3->setText("MED");
-            pulseCounter = 15;
-            currentCountdown = ui->lcdNumber;
-            ui->lcdNumber->display(pulseCounter);
-            pulseTimer->start(1000);
-        }else if(item->text().compare("SCREENING") == 0){
-            updateScreen(ui->medWidget);
-            currentCountdown = ui->lcdNumber;
-            ui->label_3->setText("SCREENING");
-            ui->lcdNumber->display(pulseCounter);
-            pulseTimer->start(1000);
-        }
-        qDebug() << item->text();
-    }else{
-
-    }
-
-    /*
-    DenasListItem *dli = ((DenasListItem*)(ui->list->currentItem()));
-    ui->label_3->setText(dli->text());
-
-    if(dli->getFlag().compare("economy") == 0){
-        batteryPrompt = "ECO " + batteryPrompt;
-    }else{
-        if(dli->getAssocList() != NULL){
-            history.push(currentWidget);
-            currentWidget->hide();
-            currentWidget = dli->getAssocList();
-            counter = -1;
-            currentWidget->show();
+        if(ui->label_3->text().compare("SETTINGS") != 0) ui->label_3->setText(item->text()); // prevents label_3 changing to selected option if in SETTINGS
+        if(item->text().compare("PROGRAMS") == 0)       updateScreen(ui->list_2);
+        else if(item->text().compare("SETTINGS") == 0)  updateScreen(ui->list_7);
+        else if(item->text().compare("Allergy") == 0)   updateScreen(ui->therapyWidget, 0, 30, 5*60);
+        else if(item->text().compare("Pain") == 0)      updateScreen(ui->therapyWidget, 1, 30, 15*60);
+        else if(item->text().compare("Int. Pain") == 0) updateScreen(ui->therapyWidget, 2, 30, 15*60);
+        else if(item->text().compare("MED") == 0)       updateScreen(ui->therapyWidget, -1, 15, 5*60);
+        else if(item->text().compare("SCREENING") == 0) updateScreen(ui->therapyWidget, -1, 10, 3*60);
+        else if(item->text().compare("Economy") == 0){
+            if(!battery->getEcoState()) batteryPrompt = "ECO " + batteryPrompt;
+            else batteryPrompt = "Battery: ";
+            battery->setEcoState(!battery->getEcoState());
         }
     }
-    if(dli->text().compare("MED") == 0){
-        ui->medWidget->show();
-        ui->label_3->setText("MED");
-        if(pulseCounter <= 0){ // make sure user cannot "spam" ok-button (would result in countdown being reset during countdown)
-            ui->medWidget->show();
-            ui->label_3->setText("MED");
-            pulseCounter = 15;
-            ui->lcdNumber->display(pulseCounter);
-            pulseTimer->start(1000);
-        }
-    }else if(dli->text().compare("SCREENING") == 0){
-        ui->medWidget->show();
-        ui->label_3->setText("SCREENING");
-    }
-    */
 }
 
 void MainWindow::on_pushButton_3_clicked(){
@@ -243,11 +130,13 @@ void MainWindow::on_pushButton_2_clicked(){
     if (counter > 0) counter --;
     ((QListWidget*)(currentWidget))->setCurrentItem(((QListWidget*)(currentWidget))->item(counter));
 }
+
 //back button
 void MainWindow::on_pushButton_7_clicked(){
 
-    if(currentWidget == ui->allergy_widget){
-        qDebug() << "Activated Pog";
+    if(history.empty()) return;
+
+    if(currentWidget == ui->therapyWidget){
         pulseTimer->stop();
         pulseCounter = 0;
         therapyCounter = 20*60;
@@ -276,31 +165,22 @@ void MainWindow::on_pushButton_7_clicked(){
     if(history.empty()){
         ui->label_3->setText("MAIN MENU");
     }
-
-
-
-
 }
 //menu button
 void MainWindow::on_pushButton_8_clicked()
 {
     if(!history.empty()){
-
         currentWidget->hide();
         currentWidget = ui->list;
         history.pop();
         counter = -1;
         currentWidget->show();
-        qDebug()<< "test";
     } else if (ui->label_3->text().compare("MED") == 0){
         ui->medWidget->hide();
         ui->list->show();
-
-
     }else if (ui->label_3->text().compare("SCREENING") == 0){
         ui->medWidget->hide();
         ui->list->show();
-
     }
 }
 
@@ -314,7 +194,6 @@ void MainWindow::on_Find_Device_clicked(){
 }
 
 void MainWindow::on_Bluetooth_On_clicked() {socket->write("ON");}
-
 void MainWindow::on_Bluetoot_Off_clicked() {socket->write("OFF");}
 
 void MainWindow::deviceDiscovered(const QBluetoothDeviceInfo &device){
@@ -329,10 +208,6 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item){
     socket->connectToService(QBluetoothAddress(string), QBluetoothUuid(serviceUuid), QIODevice::ReadWrite);
 }
 
-
-
-
-
 void MainWindow::on_list_7_itemClicked(QListWidgetItem *item){
     if (item->text().compare("Economy") == 0){
         //item->setText("economyon");
@@ -343,5 +218,4 @@ void MainWindow::on_list_7_itemClicked(QListWidgetItem *item){
         //item->setText("economyon");
             item->setText("Economy");
     }
-
 }

@@ -10,7 +10,9 @@
 #include <QDebug>
 #include <QStack>
 
+#include <iostream>
 #include <stack>
+#include <string>
 
 #include "mctclock.h"
 #include "battery.h"
@@ -22,8 +24,6 @@
 #include "screening.h"
 #include "settings.h"
 #include "denaslistitem.h"
-
-using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -66,10 +66,8 @@ private:
     QWidget *currentWidget;
     stack<QWidget*> history;
     QLCDNumber *currentCountdown;
-    //stack<QWidget*> historyWid;
-    //QListWidget *currentWidget;
-
     string batteryPrompt;
+
     // bluetooth related member variables
     QBluetoothDeviceDiscoveryAgent *disc = new QBluetoothDeviceDiscoveryAgent;
     QBluetoothSocket *socket;
@@ -80,5 +78,6 @@ private:
 
     void mainListSetup();
     void updateScreen(QWidget*);
+    void updateScreen(QWidget*, int, int, int);
 };
 #endif // MAINWINDOW_H
