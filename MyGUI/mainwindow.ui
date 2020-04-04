@@ -802,7 +802,7 @@ font-size: 20px ;
       </font>
      </property>
      <property name="text">
-      <string>Epstien killed himself</string>
+      <string>Epstien didn't killed himself</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
