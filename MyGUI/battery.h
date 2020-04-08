@@ -12,10 +12,11 @@ public:
     int drain();
     bool getEcoState();
     void setEcoState(bool);
+    float drainAmount;
 
 private:
     float level;
-    float drainAmount;
+
     bool eco;
 };
 

@@ -36,6 +36,9 @@ MainWindow::MainWindow(QWidget *parent)
     counter = -1;
     currentWidget = ui->list;
 
+    connect(ui->horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(on_freq_adjusted()));
+    curFreq = 200;
+
     // bluetooth related setup
     connect(disc, SIGNAL(deviceDiscovered(QBluetoothDeviceInfo)), this, SLOT(deviceDiscovered(QBluetoothDeviceInfo)));
     disc->start();
@@ -45,6 +48,12 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::closePotentialTherapy(){
+    pulseTimer->stop();
+    battery->remDrain((float)curFreq * 0.002);
+    ui->horizontalSlider->setEnabled(true);
 }
 
 Battery* MainWindow::getBattery(){return battery;}
@@ -58,12 +67,18 @@ void MainWindow::on_pulseTimer_activated(){
     if(pulseCounter > 0){
         pulseCounter --;
         currentCountdown->display(pulseCounter);
+    }else if(pulseCounter == 0){
+        battery->addDrain(curFreq*0.002);
+        pulseCounter = -1;
     }else if(therapyCounter > 0){
-        pulseCounter = 0;
+        pulseCounter = -1;
         currentCountdown->display(therapyCounter);
         therapyCounter --;
         ui->label->setText("Therapy is now active");
+        ui->horizontalSlider->setEnabled(false);
     }else{
+        pulseCounter = 0;
+        battery->remDrain(curFreq*0.002);
         therapyCounter = 0;
         pulseTimer->stop();
     }
@@ -134,6 +149,8 @@ void MainWindow::on_pushButton_2_clicked(){
 //back button
 void MainWindow::on_pushButton_7_clicked(){
 
+    closePotentialTherapy();
+
     if(history.empty()) return;
 
     if(currentWidget == ui->therapyWidget){
@@ -169,6 +186,8 @@ void MainWindow::on_pushButton_7_clicked(){
 //menu button
 void MainWindow::on_pushButton_8_clicked()
 {
+    closePotentialTherapy();
+
     if(!history.empty()){
         currentWidget->hide();
         currentWidget = ui->list;
@@ -182,6 +201,11 @@ void MainWindow::on_pushButton_8_clicked()
         ui->medWidget->hide();
         ui->list->show();
     }
+}
+
+void MainWindow::on_freq_adjusted(){
+    curFreq = ui->horizontalSlider->value() * 5 + 200;
+    ui->freqLbl->setText(QString::number(curFreq));
 }
 
 // bluetooth function definitions

@@ -9,6 +9,7 @@
 #include <QtBluetooth>
 #include <QDebug>
 #include <QStack>
+#include <QSlider>
 
 #include <iostream>
 #include <stack>
@@ -46,6 +47,7 @@ private slots:
     void on_pulseTimer_activated();
     void on_pushButton_3_clicked();
     void on_pushButton_2_clicked();
+    void on_freq_adjusted();
     // bluetooth related slots
     void on_Find_Device_clicked();
     void on_Bluetooth_On_clicked();
@@ -61,6 +63,7 @@ private:
     int counter;
     int pulseCounter;
     int therapyCounter;
+    int curFreq;
     MCTClock *mctClock;
     Battery *battery;
     QWidget *currentWidget;
@@ -79,5 +82,6 @@ private:
     void mainListSetup();
     void updateScreen(QWidget*);
     void updateScreen(QWidget*, int, int, int);
+    void closePotentialTherapy();
 };
 #endif // MAINWINDOW_H
