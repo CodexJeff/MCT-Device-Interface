@@ -9,10 +9,15 @@ Battery::Battery()
 
 int Battery::batteryStatus(){return (int)level;}
 
-void Battery::addDrain(float x){drainAmount += x;}
+void Battery::addDrain(float x){
+    drainAmount += x;
+}
 
 void Battery::remDrain(float x){
     drainAmount -= x;
+    if(drainAmount < 0.125){
+        drainAmount = 0.125;
+    }
 }
 
 bool Battery::getEcoState(){return eco;}
